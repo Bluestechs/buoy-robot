@@ -627,7 +627,7 @@
    svg+=lego?'<path d="M35 190H535L565 170V530L535 550H35Z" fill="#a4ceda" stroke="#7597a7" stroke-width="2"/><path d="M35 190l30-20H565L535 190Z" fill="#d2e8ee"/><path d="M535 190l30-20V530L535 550Z" fill="#6fa9bd"/>':'<path d="M30 190H570L545 540Q300 570 55 540Z" fill="#c6dce5" stroke="#6d8fa2" stroke-width="3"/><path d="M48 207H552L528 527Q300 551 72 527Z" fill="#edf5f8" opacity=".85"/>';
    if(lego)for(let i=0;i<16;i++)svg+=`<ellipse cx="${50+i*30}" cy="180" rx="8" ry="4" fill="#80b5c6" stroke="#598b9f"/><circle cx="${50+i*30}" cy="537" r="5" fill="#507687"/>`;
    svg+='<g class="model-wires" fill="none" stroke="#7496a8" stroke-width="3" stroke-dasharray="5 6"><path d="M200 85H235V210H315M485 85H520V215H470M470 260H540V370H115V385M540 370H450V385M540 370V565H300M165 260H315"/></g>';
-   for(const [part,[x,y]] of Object.entries(componentPositions))svg+=`<g class="hotspot" role="button" tabindex="0" aria-label="${lego?kitNames[part]:displayNames[part]} on ${id}" data-hotspot="${part}" transform="translate(${x} ${y})"><rect class="hit-area" x="-105" y="-83" width="210" height="157" rx="8" fill="transparent"/><g class="component-art">${componentArt(part,lego)}</g><text class="component-label" text-anchor="middle" y="${part==='pi'&&lego?96:84}">${lego?kitNames[part]:displayNames[part]}</text></g>`;
+   for(const [part,[x,y]] of Object.entries(componentPositions))svg+=`<g class="hotspot" role="button" tabindex="0" aria-label="${lego?kitNames[part]:displayNames[part]} on ${id}" data-hotspot="${part}" transform="translate(${x} ${y})"><rect class="hit-area" x="-105" y="-83" width="210" height="${part==='pi'&&lego?157:143}" rx="8" fill="transparent"/><g class="component-art">${componentArt(part,lego)}</g><text class="component-label" text-anchor="middle" y="${part==='pi'&&lego?96:84}">${lego?kitNames[part]:displayNames[part]}</text></g>`;
    return `<figure data-model="${id}"><figcaption>${lego?'LEGO SPIKE equivalent':'Outdoor buoy concept'}</figcaption>${svg}</svg></figure>`;
  }
  section.querySelector('.model-pair').innerHTML=model(false)+model(true);
@@ -646,6 +646,57 @@
  }
  const modelPair=section.querySelector('.model-pair');
  modelPair.insertBefore(pop,section.querySelector('[data-model="lego"]'));
+ const sameJobs={weather:'send a rain message',power:'supply electricity',pi:'read inputs and follow the rules',run:'give permission to run',tanks:'check whether there is enough water',pump:'show the output running',optics:'use light to check the sample'};
+ const mappingSummary=document.createElement('p');mappingSummary.className='mapping-summary';mappingSummary.hidden=true;mappingSummary.setAttribute('role','status');modelPair.before(mappingSummary);
+ const svgNamespace='http://www.w3.org/2000/svg';
+ const connector=document.createElementNS(svgNamespace,'svg');connector.classList.add('mapping-connector');connector.setAttribute('aria-hidden','true');connector.setAttribute('hidden','');
+ connector.innerHTML='<defs><linearGradient id="mapping-colors" gradientUnits="userSpaceOnUse"><stop stop-color="#168144"/><stop offset="1" stop-color="#155bb9"/></linearGradient></defs><path class="mapping-underlay"/><path class="mapping-dots"/><circle class="mapping-end source" r="5"/><circle class="mapping-end counterpart" r="5"/>';
+ modelPair.append(connector);
+ let mappingSource='outdoor',mappingFrame=null;
+ for(const figure of modelPair.querySelectorAll('[data-model]')){const role=document.createElement('span');role.className='mapping-role';role.hidden=true;figure.querySelector('figcaption').append(role);}
+ function mappingPort(side,frame){
+   const figure=modelPair.querySelector(`[data-model="${side}"]`);
+   const hotspot=figure.querySelector(`[data-hotspot="${selected}"]`);
+   const bounds=figure.getBoundingClientRect();
+   const direction=componentPositions[selected][0]<=300?-1:1;
+   const point=new DOMPoint(direction*105,0).matrixTransform(hotspot.getScreenCTM());
+   return {x:point.x-frame.left,y:point.y-frame.top,lane:(direction<0?bounds.left-10:bounds.right+10)-frame.left};
+ }
+ function drawMapping(){
+   mappingFrame=null;
+   if(pop.hidden){connector.setAttribute('hidden','');return;}
+   const frame=modelPair.getBoundingClientRect();
+   const source=mappingPort(mappingSource,frame),target=mappingPort(mappingSource==='outdoor'?'lego':'outdoor',frame);
+   const stacked=matchMedia('(max-width:1050px)').matches;
+   const points=stacked?[[source.x,source.y],[source.lane,source.y],[source.lane,target.y],[target.x,target.y]]:[[source.x,source.y],[source.lane,source.y],[source.lane,14],[target.lane,14],[target.lane,target.y],[target.x,target.y]];
+   connector.setAttribute('viewBox',`0 0 ${frame.width} ${frame.height}`);
+   const route=points.map(([x,y],index)=>`${index?'L':'M'}${x.toFixed(2)} ${y.toFixed(2)}`).join(' ');
+   connector.querySelectorAll('path').forEach(path=>{path.setAttribute('d',route);});
+   const gradient=connector.querySelector('linearGradient');gradient.setAttribute('x1',source.x);gradient.setAttribute('y1',source.y);gradient.setAttribute('x2',target.x);gradient.setAttribute('y2',target.y);
+   for(const [role,point] of [['source',source],['counterpart',target]]){const end=connector.querySelector(`circle.${role}`);end.setAttribute('cx',point.x);end.setAttribute('cy',point.y);}
+   connector.removeAttribute('hidden');
+ }
+ function scheduleMapping(){if(mappingFrame===null)mappingFrame=requestAnimationFrame(drawMapping);}
+ function selectMapping(button){
+   mappingSource=button.closest('[data-model]')?.dataset.model||'outdoor';
+   mappingSummary.replaceChildren();
+   const heading=document.createElement('strong');heading.textContent='Same job: '+sameJobs[selected]+'.';
+   const explanation=document.createElement('span');explanation.textContent='Green = the part you picked. Blue = its match. Different parts can do the same job.';
+   mappingSummary.append(heading,explanation);mappingSummary.hidden=false;
+   for(const figure of modelPair.querySelectorAll('[data-model]')){
+     const role=figure.dataset.model===mappingSource?'source':'counterpart';figure.dataset.mapRole=role;
+     const badge=figure.querySelector('.mapping-role');badge.hidden=false;badge.textContent=role==='source'?'Selected · green':'Same job · blue';
+     figure.querySelectorAll('[data-hotspot]').forEach(part=>{if(part.dataset.hotspot===selected)part.dataset.mapRole=role;else delete part.dataset.mapRole;});
+   }
+   scheduleMapping();
+ }
+ function clearMapping(){
+   connector.setAttribute('hidden','');mappingSummary.hidden=true;
+   modelPair.querySelectorAll('[data-map-role]').forEach(e=>{delete e.dataset.mapRole;});
+   modelPair.querySelectorAll('.mapping-role').forEach(e=>{e.hidden=true;});
+ }
+ const mappingResize=new ResizeObserver(scheduleMapping);mappingResize.observe(modelPair);mappingResize.observe(pop);modelPair.querySelectorAll('[data-model]').forEach(figure=>{mappingResize.observe(figure);});
+ addEventListener('resize',scheduleMapping);addEventListener('scroll',scheduleMapping,{passive:true});
  pop.setAttribute('role','region');
  const animateButton=pop.querySelector('[data-animate-part]');
  const animationStatus=pop.querySelector('[data-animation-status]');
@@ -660,7 +711,7 @@
    pop.querySelector('[data-part-cost]').textContent=costs[part];
    pop.querySelector('[data-part-words]').replaceChildren(explainWords(guide.words));
    const source=pop.querySelector('[data-photo-source]');source.href=guide.source;source.textContent=guide.caption+' photo: '+guide.credit;
-   tab(kind);pop.hidden=false;pop.scrollTop=0;modelPair.classList.add('has-details');document.body.classList.add('part-selected');modelPair.scrollIntoView({block:'start',behavior:'instant'});pop.querySelector('[data-close-part]').focus({preventScroll:true});
+   tab(kind);pop.hidden=false;pop.scrollTop=0;modelPair.classList.add('has-details');document.body.classList.add('part-selected');selectMapping(button);mappingSummary.scrollIntoView({block:'start',behavior:'instant'});pop.querySelector('[data-close-part]').focus({preventScroll:true});
  }
  const partList=section.querySelector('.explorer-parts');partList.setAttribute('aria-label','Explore the parts');
  const listIntro=document.createElement('h3');listIntro.textContent='Meet the parts';partList.before(listIntro);
@@ -669,7 +720,7 @@
  const wordsHeading=document.createElement('h3');wordsHeading.textContent='Words made simple';const partWords=document.createElement('div');partWords.dataset.partWords='';pop.querySelector('[data-part-cost]').after(wordsHeading,partWords);const photoSource=document.createElement('a');photoSource.dataset.photoSource='';const photoCredit=document.createElement('p');photoCredit.className='text-small';photoCredit.append(photoSource);partWords.after(photoCredit);
  const glossary=document.createElement('details');glossary.className='part-glossary';const glossarySummary=document.createElement('summary');glossarySummary.textContent='Word helper: what do these letters mean?';glossary.append(glossarySummary,explainWords(Object.keys(wordBook)));partList.after(glossary);
  root.querySelectorAll('[data-hotspot]').forEach(e=>{e.addEventListener('click',()=>open(e.dataset.hotspot,e,e.closest('[data-model]').dataset.model==='lego'?'lego':'python'));const preview=active=>{root.querySelectorAll(`[data-hotspot="${e.dataset.hotspot}"]`).forEach(match=>{match.classList.toggle('preview',active);});};e.addEventListener('pointerenter',()=>preview(true));e.addEventListener('pointerleave',()=>preview(false));e.addEventListener('focus',()=>preview(true));e.addEventListener('blur',()=>preview(false));e.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();e.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});});
- pop.querySelectorAll('[data-code-tab]').forEach(b=>{b.onclick=()=>tab(b.dataset.codeTab);});function close(){cancel();pop.hidden=true;modelPair.classList.remove('has-details');document.body.classList.remove('part-selected');origin?.focus();}pop.querySelector('[data-close-part]').onclick=close;document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pop.hidden)close();});
+ pop.querySelectorAll('[data-code-tab]').forEach(b=>{b.onclick=()=>tab(b.dataset.codeTab);});function close(){cancel();pop.hidden=true;clearMapping();modelPair.classList.remove('has-details');document.body.classList.remove('part-selected');origin?.focus();}pop.querySelector('[data-close-part]').onclick=close;document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pop.hidden)close();});
  const oldScene=root.querySelector('.buoy-scene');const sync=()=>{const pair=section.querySelector('.model-pair');pair.classList.toggle('pumping',oldScene.classList.contains('running'));pair.classList.toggle('paused',!root.classList.contains('is-playing'));pair.classList.toggle('storm',oldScene.classList.contains('storm'));pair.classList.toggle('cloudy',oldScene.classList.contains('cloudy'));pair.classList.toggle('low',root.querySelector('[data-level]').textContent==='Low');pair.classList.toggle('released',root.querySelector('[data-armed]').textContent==='Released');};new MutationObserver(sync).observe(root.querySelector('.buoy-sim'),{subtree:true,attributes:true,childList:true,characterData:true});new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:['class']});sync();
  const demonstrationSteps={
    weather:[['Rain is expected','Outdoor: a forecast message arrives. LEGO: press the Hub left button.'],['Send the message','The signal travels toward the computer. It still has to check water and Run permission.'],['Message received','A forecast can request a pulse. It does not skip the safety checks.']],
@@ -804,6 +855,25 @@ body.part-selected main {max-width:1800px}
 @keyframes sun-turn {to{transform:rotate(30deg)}}
 @media(max-width:1050px){.model-pair.action-active figure>svg{max-height:45vh}.model-pair .action-view svg{height:190px}}
 @media(prefers-reduced-motion:reduce){.model-pair :is(.hotspot,.action-view) *{animation:none!important;transition:none!important}}
+.model-pair {position:relative}
+.model-pair.has-details {padding:34px 14px 0;gap:32px}
+.model-pair>.mapping-connector {position:absolute;inset:0;width:100%;height:100%;overflow:visible;background:none;border-radius:0;pointer-events:none;z-index:2}
+.mapping-underlay {fill:none;stroke:var(--background);stroke-width:8;stroke-linejoin:round}
+.mapping-dots {fill:none;stroke:url(#mapping-colors);stroke-width:3.5;stroke-dasharray:1 9;stroke-linecap:round;stroke-linejoin:round}
+.mapping-end {stroke:var(--background);stroke-width:2}
+.mapping-end.source {fill:#168144}.mapping-end.counterpart {fill:#155bb9}
+.model-pair .hotspot[data-map-role] {filter:none}
+.hotspot[data-map-role=source]>.hit-area {fill:#b7efca;fill-opacity:.7;stroke:#168144;stroke-width:5;vector-effect:non-scaling-stroke}
+.hotspot[data-map-role=counterpart]>.hit-area {fill:#c2dcff;fill-opacity:.7;stroke:#155bb9;stroke-width:5;vector-effect:non-scaling-stroke}
+.mapping-summary {padding:16px 0 8px;scroll-margin-top:16px}
+.mapping-summary strong {display:block;font-size:1.2rem;margin-bottom:6px}
+.mapping-summary span {display:block;color:var(--muted-foreground)}
+.mapping-role {display:block;font-size:.875rem;line-height:1.4;margin-top:6px;font-weight:650}
+[data-model][data-map-role=source] .mapping-role {color:#136a39}
+[data-model][data-map-role=counterpart] .mapping-role {color:#154d99}
+[data-model][data-map-role=source] .action-name {color:#136a39}
+[data-model][data-map-role=counterpart] .action-name {color:#154d99}
+@media(max-width:1050px){.model-pair.has-details{padding:16px 14px 0;gap:24px}}
 </style>
 </body>
 </html>
