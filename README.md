@@ -2,13 +2,17 @@
 
 [Open the interactive buoy explorer](https://bluestechs.github.io/buoy-robot/).
 
-The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the self-contained app. Pushing an update to `main` republishes the site. You can also download `demo.html` and open it offline.
+The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the explorer; `parts.html` is the parts catalog. Everything is static files and client-side JavaScript — no server code, build step, accounts, or secrets. Pushing an update to `main` republishes the site.
 
 Put the Pi and breadboard on a dry LEGO base next to a shallow catch tray. Use two clear cups to show the tanks from the team's sketch. One holds plain water for display. The other holds water with a drop of food coloring and feeds the pump. The pump moves colored water into a clear catch cup, where everyone can see the result. Use a forecast button to stand in for the weather network and a light sensor to read a separate sample cup.
 
 ## Try the simulator
 
-The concept explorer places an outdoor buoy cutaway beside a dry LEGO SPIKE equivalent. Select a component on either model, or use the named part buttons, to compare Python excerpts with SPIKE-style programming blocks. These illustrate the logic, not a complete executable program. **Animate this part** plays an isolated demonstration without changing the simulator. Close the part window with its close button or Escape.
+The opening play page targets ages 7–10. A student picks one of three missions, guesses whether the pump will run, and takes a step to test the prediction. The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Visible feedback shows the current weather and a moving LEGO flag. The mission checks the real controller state. Answers and scores are not stored.
+
+Start over resets the mission to rain, water present, and Run held. A ready-made scene selector is available inside **Try a ready-made scene**. Manual switches remain available. **Play** advances one simulated second at a time after the first prediction; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
+
+Below the controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short child-first explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology remain available inside **For mentors**. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
 The muted blue presentation uses a light theme regardless of the operating system setting. Discussion prompts and the prototype parts budget expand below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
@@ -16,9 +20,11 @@ Each animation now has three named steps and enlarged close-ups under both devic
 
 Select a part on either model to compare its job: **green** marks the part you picked and **blue** marks its match in the other model. A dotted line connects the pair around the diagrams, clear of the explanation text. The “Same job” sentence explains the shared idea, such as the hold-to-run button and the Hub's right button both giving permission to run. They share a role, not necessarily the same hardware or measurement method.
 
-**Meet the parts** includes photos of example tabletop components and a short explanation of each job. Select a picture or a model component to open its details in a center column between the two devices. Both devices stay visible while you animate a part. On smaller screens, the outdoor model, details, and LEGO model stack without overlap. Close the details with the close button or Escape to return to two views. **Words made simple** explains terms such as GPIO, LED, ADC, and MOSFET; the **Word helper** below the pictures collects all definitions. Photos are embedded in `demo.html`, so they work offline. Photo credits and links to Adafruit or AceCrew appear with each part's details.
+**Meet the parts** is an invitation strip on the explorer linking to the [parts catalog](parts.html). Each catalog entry starts with a photo, a short job description, and a LEGO equivalent. Open its mentor section for code, costs, terminology and source credits. The **Word helper** collects all definitions.
 
-Open [demo.html](demo.html) in a browser. It works offline, with no installation or internet connection. Choose a scenario and click **Next step** to advance one simulated second. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Reset** returns the scenario to time zero. Changing scenarios also stops playback and resets the controller.
+On the explorer, select a model component to open its details between the two devices. Both devices stay visible during the animation. On smaller screens, the outdoor model, details and LEGO model stack without overlap. Green marks the selected part and blue its counterpart, with labels that do not rely on color alone. Photos live in `images/` as ordinary static files. Photo credits link to Adafruit or AceCrew.
+
+Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Choose a mission, make a prediction and click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the mission to time zero. Changing scenarios also stops playback and resets the controller.
 
 For a classroom presentation:
 

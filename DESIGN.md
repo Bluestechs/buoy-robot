@@ -4,7 +4,7 @@
 
 The primary experience is free exploration of an outdoor buoy concept beside a LEGO SPIKE dry equivalent. Both models use layered inline SVG with shaded faces, translucent hull, studs, circuit details, sensors, and moving components. Native part buttons supplement SVG keyboard hotspots. The page is always light, using blue-gray #e4eef4, navy #18374c, pale panels #d5e5ee, and primary blue #185f83.
 
-Layout: two equally sized model figures above secondary simulation and discussion content, stacking below 800px. The original diagram remains hidden as the controller's state bridge. Grade prompts and the sourced prototype budget use disclosures.
+Layout for ages 7–10: a play area comes first, followed by two equal model figures. Students choose one of three missions, predict the pump state and take a step. Four manual switches control rain, cloudy water, water level and run permission. A weather icon and LEGO flag reflect the actual simulation state. Predictions are checked against the real controller, never stored. The original diagram remains hidden as the controller's state bridge. Grade prompts, Python, costs and the prototype budget use mentor disclosures.
 
 Selecting either model pairs its highlight and opens Python or LEGO blocks by default according to the model. Details appear in the center column between the models, close with Escape, and return focus. The outside columns are wider than the text column. Isolated animation has a separate timer and does not mutate controller state. Reduced motion suppresses animation. All prices are prototype prices; outdoor solar and enclosure are excluded. Existing equipment and shared supplies are not double counted.
 
@@ -12,9 +12,9 @@ Implementation syntax: both inline scripts parse under Node. Root owns browser a
 
 ## Purpose and audience
 
-The part list uses bundled component photos with plain-language names and one-sentence jobs. Photos are prototype examples, not photos of the imagined outdoor device. Seven photo buttons retain their existing component mapping and selected state. Cards use an auto-fit grid with 145px minimum columns and 112px photo areas; images preserve their proportions. Photo source credits appear in the part dialog. Relevant acronyms and unfamiliar terms are explained in a visible definition list; a shared Word helper offers the full glossary. The wording targets a nine-year-old reader without changing the controller rules or code examples. All photos are embedded in the HTML for offline use.
+The site is static and multi-page: `demo.html` holds the paired models, part dialog, and simulator; `parts.html` is the parts catalog; `images/` holds the shared component photos as ordinary files. **Meet the parts** is an invitation strip on the explorer linking to the catalog. Select a model component to open its details in the center dialog. Photo source credits appear in the part dialog and catalog. Relevant acronyms and unfamiliar terms are explained in the part dialog; a shared Word helper offers the full glossary in the catalog. The wording targets a nine-year-old reader without changing the controller rules or code examples. Hosting is public GitHub Pages; no server-side code, credentials, or build step.
 
-Students in grades 5–7 freely explore an imagined outdoor buoy beside its dry LEGO SPIKE equivalent. Selecting a component explains its purpose, Python logic, visual programming blocks, prototype cost, and movement. No hardware or tested outdoor prototype is assumed.
+Ages 7–10 freely explore an imagined outdoor buoy beside its dry LEGO SPIKE equivalent. Selecting a component gives a short plain-language job, a LEGO equivalent and a moving demonstration. Full explanations, Python logic, visual programming blocks and prototype costs stay in the mentor section. Existing grade 5–7 prompts remain optional teacher material. No hardware or tested outdoor prototype is assumed.
 
 ## Visual system
 
