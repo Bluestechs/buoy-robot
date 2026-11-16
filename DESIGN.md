@@ -4,7 +4,7 @@
 
 The primary experience is free exploration of an outdoor buoy concept beside a LEGO SPIKE dry equivalent. Both models use layered inline SVG with shaded faces, translucent hull, studs, circuit details, sensors, and moving components. Native part buttons supplement SVG keyboard hotspots. The page is always light, using blue-gray #e4eef4, navy #18374c, pale panels #d5e5ee, and primary blue #185f83.
 
-Layout for ages 7–10: a play area comes first, followed by two equal model figures. Students choose one of three missions, predict the pump state and take a step. Four manual switches control rain, cloudy water, water level and run permission. A weather icon and LEGO flag reflect the actual simulation state. Predictions are checked against the real controller, never stored. The original diagram remains hidden as the controller's state bridge. Grade prompts, Python, costs and the prototype budget use mentor disclosures.
+Layout for ages 7–10: the homepage starts with the kids' complete proposal and attribution. Four themes then follow in document order: the kids' idea, two models with same-job comparisons, **Be the weather** play, then **Meet the parts**. Students choose one of three missions, predict the pump state and take a step. Four manual switches control rain, cloudy water, water level and run permission. A weather icon and LEGO flag reflect the actual simulation state. Predictions are checked against the real controller, never stored. The original diagram remains hidden as the controller's state bridge. Grade prompts, Python, costs and the prototype budget use mentor disclosures.
 
 Selecting either model pairs its highlight and opens Python or LEGO blocks by default according to the model. Details appear in the center column between the models, close with Escape, and return focus. The outside columns are wider than the text column. Isolated animation has a separate timer and does not mutate controller state. Reduced motion suppresses animation. All prices are prototype prices; outdoor solar and enclosure are excluded. Existing equipment and shared supplies are not double counted.
 
@@ -16,7 +16,7 @@ The site is static and multi-page: `demo.html` holds the paired models, part dia
 
 Ages 7–10 freely explore an imagined outdoor buoy beside its dry LEGO SPIKE equivalent. Selecting a component gives a short plain-language job, a LEGO equivalent and a moving demonstration. Full explanations, Python logic, visual programming blocks and prototype costs stay in the mentor section. Existing grade 5–7 prompts remain optional teacher material. No hardware or tested outdoor prototype is assumed.
 
-`solution.html` credits the kids and presents their problem statement and proposed solutions in their own words, with spelling-only correction. It distinguishes the proposed outdoor idea from the tabletop and dry LEGO visualization. Link to it beside the play title and from the parts catalog.
+The homepage credits the kids and presents their problem statement and proposed solutions in their own words, with spelling-only correction. It distinguishes the proposed outdoor idea from the tabletop and dry LEGO visualization. `solution.html` redirects to the homepage's kids'-idea section, and the parts catalog links to the same section.
 
 ## Visual system
 

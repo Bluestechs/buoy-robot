@@ -2,17 +2,19 @@
 
 [Open the interactive buoy explorer](https://bluestechs.github.io/buoy-robot/).
 
-The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the explorer; `parts.html` is the parts catalog. `solution.html` presents the kids' proposed algae-bloom solution. Everything is static files and client-side JavaScript — no server code, build step, accounts, or secrets. Pushing an update to `main` republishes the site.
+The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the explorer; `parts.html` is the parts catalog. `solution.html` keeps existing links working by redirecting to the homepage's kids'-idea section. Everything is static files and client-side JavaScript — no server code, build step, accounts, or secrets. Pushing an update to `main` republishes the site.
 
 Put the Pi and breadboard on a dry LEGO base next to a shallow catch tray. Use two clear cups to show the tanks from the team's sketch. One holds plain water for display. The other holds water with a drop of food coloring and feeds the pump. The pump moves colored water into a clear catch cup, where everyone can see the result. Use a forecast button to stand in for the weather network and a light sensor to read a separate sample cup.
 
 ## The kids' big idea
 
-Read [Proposed by the kids](solution.html) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. The prototype does not test or recommend treating a real waterway.
+Read [Proposed by the kids](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. The prototype does not test or recommend treating a real waterway.
 
 ## Try the simulator
 
-The opening play page targets ages 7–10. A student picks one of three missions, guesses whether the pump will run, and takes a step to test the prediction. The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Visible feedback shows the current weather and a moving LEGO flag. The mission checks the real controller state. Answers and scores are not stored.
+The homepage targets ages 7–10 with four themes in order: the kids' original idea, same-job comparisons between two kinds of robot, **Be the weather** play, then **Meet the parts**. Optional discussion and budget material comes afterward.
+
+During play, a student picks one of three missions, guesses whether the pump will run, and takes a step to test the prediction. The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Visible feedback shows the current weather and a moving LEGO flag. The mission checks the real controller state. Answers and scores are not stored.
 
 Start over resets the mission to rain, water present, and Run held. A ready-made scene selector is available inside **Try a ready-made scene**. Manual switches remain available. **Play** advances one simulated second at a time after the first prediction; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
 

@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rain robot · can you make the pump go?</title>
-  <meta name="description" content="A rain robot playground. Predict what makes a pump run, test your guess, and explore LEGO parts.">
+  <title>Proposed by the kids · explore their rain robot idea</title>
+  <meta name="description" content="The kids' proposed algae-bloom solution, two same-job robot models, a weather playground, and the parts that make the idea work.">
   <style>
     #team-buoy {
       --edge: color-mix(in srgb, var(--foreground) 55%, var(--background));
@@ -147,12 +147,22 @@
   <main>
     <header>
       <div>
-      <h1>Rain robot</h1>
-      <p>You be the weather. What makes the pump go?</p>
-      <a class="story-link" href="solution.html">Read the kids' big idea →</a>
+      <h1>Proposed by the kids</h1>
+      <p>They imagined a way to help a lake. We helped picture their idea.</p>
       </div>
       <button class="btn" type="button" data-present aria-pressed="false">Presentation view</button>
     </header>
+    <section class="kids-idea" id="kids-idea" aria-label="The kids' proposed solution">
+      <p class="idea-credit">They did the work. These are their original problem and proposed solutions, in their own words. If they had more time, it might have gotten here. They might do it differently next time.</p>
+      <article class="kid-work">
+        <h2>The Problem</h2>
+        <p>The Biodiversity problem we chose was algae blooms. Specifically, how to minimize and kill problematic algae. Fertilizer, like phosphorus and nitrogen from farms, will get into runoff water when big rains happen and will flow into the nearest lake or river, which will fertilize the algae. The only reason this is a problem is that algae will grow faster than the natural predators of algae can eat it in the habitat. If it gets big enough, the algae will block sunlight, killing the plants, which then kills the animals that eat the plants, etc. This limits biodiversity and hurts the overall habitat.</p>
+      </article>
+      <article class="kid-work">
+        <h2>The Solutions</h2>
+        <p>The solution we decided on is for a levee to surround the edge of a farm to catch and absorb the water runoff with fertilizer. We also have a system where every year a boat would drive around a lake or an inlet and release beneficial bacteria, which will eat the phosphorus and nitrogen fertilizer and essentially starve the algae. But when an especially hard rain comes, there would be a buoy. In the buoy, there would be two tanks: one of them holds a sodium peroxyhydrate solution that, when mixed with water, can kill algae; the other is filled with water and a one-way valve. The water tank would lead to a sprayer on the side that would spray the water and spread the sodium peroxyhydrate on top. On the top of the buoy, there would be solar panels that would charge the battery inside the buoy. The battery would then power a transmitter, small CPU, a water filter, and an antenna. The antenna would connect to the weather network in the nearby area, and when the weather predicted heavy rain, it would tell the CPU to open the valve and mix the water, or when the water sensor on the bottom picked up an overabundance of algae in the water. When all of these are combined, we hope that the algae will die and the lake will return to its pre-algae self.</p>
+      </article>
+    </section>
     <section id="team-buoy">
 
       <section class="buoy-sim" aria-label="Simulator">
@@ -376,9 +386,9 @@
           const code = root.querySelector("[data-code]");
           const parts = Array.from(root.querySelectorAll("[data-part]"));
           const playButton = root.querySelector("[data-play]");
-          const grade = root.querySelector("[data-grade]");
-          const reveal = root.querySelector("[data-reveal]");
-          const answer = root.querySelector("[data-answer]");
+          const grade = document.querySelector("[data-grade]");
+          const reveal = document.querySelector("[data-reveal]");
+          const answer = document.querySelector("[data-answer]");
           let seconds = 0;
           let stopAt = null;
           let eventUsed = false;
@@ -419,7 +429,7 @@
 
           function updateLesson() {
             const [question, explanation] = lessons[scenario.value][Number(grade.value) - 5];
-            root.querySelector("[data-question]").textContent = question;
+            document.querySelector("[data-question]").textContent = question;
             answer.textContent = explanation;
             answer.hidden = true;
             reveal.setAttribute("aria-expanded", "false");
@@ -573,6 +583,15 @@ header { align-items:center; margin-bottom:24px; }
 header h1 { font-size:clamp(2.2rem,5vw,4rem); }
 h1,h2,h3 { letter-spacing:-.025em; }
 .play-lab + * { margin-top:0; }
+#kids-idea { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.35fr); gap:20px; margin-bottom:48px; scroll-margin-top:16px; }
+.idea-credit { grid-column:1 / -1; max-width:70ch; color:var(--muted-foreground); font-size:1.125rem; }
+#kids-idea .kid-work { background:#fffdf4; border:2px solid #b8c9c9; border-radius:18px; padding:clamp(20px,3vw,32px); }
+#kids-idea .kid-work h2 { margin:0 0 18px; font-size:1.75rem; }
+#kids-idea .kid-work p { margin:0; font-size:1.0625rem; line-height:1.65; }
+.theme-explorer { scroll-margin-top:16px; }
+.parts-theme { max-width:1100px; margin:36px auto 0; }
+.parts-theme > p { color:var(--muted-foreground); }
+.parts-theme > h3 { margin-top:24px; }
 #team-buoy { grid-template-columns:minmax(0,1fr); gap:28px; }
 .play-lab { display:grid; grid-template-columns:minmax(230px,1.2fr) minmax(160px,.65fr) minmax(300px,1fr); gap:20px; align-items:center; padding:24px; background:#fffdf4; border:2px solid #b0c6cf; border-radius:22px; }
 .play-intro { grid-column:1 / -1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:8px 24px; }
@@ -637,6 +656,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
 .buoy-lesson > h2 { font-size:1.25rem; }
 .buoy-lesson > h2::before { content:'For grown-ups. '; font-size:.9rem; color:var(--muted-foreground); }
 .presentation .play-lab { grid-template-columns:1.2fr .65fr 1fr; }
+@media (max-width:800px) { #kids-idea { grid-template-columns:minmax(0,1fr); } }
 @media (max-width:900px) {
   .play-lab { grid-template-columns:1fr 1fr; }
   .mission-board { grid-column:1 / -1; grid-row:auto; }
@@ -714,13 +734,19 @@ h1,h2,h3 { letter-spacing:-.025em; }
     const inspector = root.querySelector('.buoy-inspect');
     const section = root.querySelector('.explorer');
 
-    // Put play first. The old drawing remains as a hidden state bridge for the paired models.
-    section.querySelector('h2').textContent = 'Two ways to build the same robot';
-    section.querySelector(':scope > p').textContent = 'Tap a part to see it move. The LEGO model is dry.';
-    root.before(lab);
+    // Order: kids' idea, two models with same-job mappings, weather play, then parts.
+    section.querySelector('h2').textContent = 'Same idea. Same job. Two kinds of robot.';
+    section.querySelector(':scope > p').textContent = 'Tap a part on either robot to see how it does the same job. The LEGO model is dry.';
+    section.classList.add('theme-explorer');
+    lab.querySelector('.eyebrow').textContent = 'Be the weather';
+    const partsTheme = document.createElement('section');
+    partsTheme.className = 'parts-theme';
+    partsTheme.innerHTML = '<h2>Meet the parts</h2><p>Look closer at the seven parts that make the idea work.</p>';
+    root.after(lab, partsTheme);
     lab.querySelector('.play-controls').append(originalControls);
     lab.insertBefore(manual, lab.querySelector('.play-bottom'));
     lab.insertBefore(status, manual);
+    oldSim.hidden = true;
     root.querySelector('.buoy-readings').hidden = true;
     root.querySelector('.science-note').hidden = false;
     inspector.hidden = true;
@@ -960,6 +986,11 @@ h1,h2,h3 { letter-spacing:-.025em; }
     // The supplied guide is still the source for animations; simplify visible labels only.
     root.querySelectorAll('[data-model="outdoor"] .component-label').forEach(label => { label.textContent = label.textContent.replace('Solar power idea', 'Sun power idea').replace('Hold-to-run button', 'Hold to run').replace('Water tank + float', 'Tank and float').replace('Pump + tubing', 'Pump and tube').replace('Light through water', 'Light sensor'); });
     root.querySelectorAll('[data-model="lego"] .component-label').forEach(label => { label.textContent = label.textContent.replace('Medium Angular Motor · C', 'Motor · C').replace('Distance Sensor · B', 'Distance · B').replace('Color Sensor · A', 'Color Sensor · A'); });
+    const kitKey = [...section.children].find(node => node.textContent.startsWith('Find these in your kit:'));
+    const invitation = section.querySelector('.parts-invite');
+    invitation.querySelector('h3').remove();
+    partsTheme.append(kitKey, invitation, section.querySelector('details.part-glossary'));
+    partsTheme.after(...root.querySelectorAll(':scope > details'));
     loadMission();
   };
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});
