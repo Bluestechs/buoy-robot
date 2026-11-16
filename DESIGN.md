@@ -16,6 +16,8 @@ The site is static and multi-page: `demo.html` holds the paired models, part dia
 
 Ages 7–10 freely explore an imagined outdoor buoy beside its dry LEGO SPIKE equivalent. Selecting a component gives a short plain-language job, a LEGO equivalent and a moving demonstration. Full explanations, Python logic, visual programming blocks and prototype costs stay in the mentor section. Existing grade 5–7 prompts remain optional teacher material. No hardware or tested outdoor prototype is assumed.
 
+`solution.html` credits the kids and presents their problem statement and proposed solutions in their own words, with spelling-only correction. It distinguishes the proposed outdoor idea from the tabletop and dry LEGO visualization. Link to it beside the play title and from the parts catalog.
+
 ## Visual system
 
 Use local system sans-serif fonts only. Always use a muted light theme: background #e4eef4, ink #18374c, secondary ink #466479, control #d5e5ee, rule #91adbd, primary #185f83, primary ink #ffffff. Water blue #287ba4, signal green #267b6b, and colored-water orange #b6572b identify physical roles. Shaded SVG surfaces distinguish equipment materials. System dark appearance does not change these colors.
