@@ -19,7 +19,6 @@
       color: var(--foreground);
     }
     #team-buoy .buoy-controls { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
-    #team-buoy .buoy-control { display: grid; gap: 4px; }
     #team-buoy .buoy-scene { display: block; width: 100%; max-width: 1100px; margin-inline: auto; }
     #team-buoy .buoy-readings { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted-foreground); }
     #team-buoy .buoy-readings strong { font-weight: 500; color: var(--foreground); }
@@ -116,13 +115,8 @@
     #team-buoy .buoy-readings strong { font-size: 1.25rem; font-weight: 700; }
     .diagram-labels { fill: var(--foreground); font-size: 12px; font-weight: 600; }
     .diagram-leaders { fill: none; stroke: var(--edge); stroke-width: 1; }
-    .buoy-lesson { display: grid; align-content: start; gap: 16px; min-width: 0; }
-    .buoy-question { font-size: 1.25rem; line-height: 1.45; }
-    .buoy-lesson .btn { justify-self: start; }
-    .buoy-answer { background: var(--control); padding: 16px; border-radius: 8px; }
     .science-note { color: var(--muted-foreground); font-size: 1rem; }
     .presentation #team-buoy .buoy-inspect { display: none; }
-    .presentation .buoy-lesson { grid-column: 1 / -1; }
     .presentation main { max-width: 1440px; }
     .presentation .buoy-scene { max-height: 52vh; }
     .presentation header p { display: none; }
@@ -179,23 +173,12 @@
 
       <section class="buoy-sim" aria-label="Simulator">
       <div class="buoy-controls">
-        <label class="buoy-control form-label">
-          Scenario
-          <select class="form-select" data-scenario>
-            <option value="calm">Clear day</option>
-            <option value="rain">Heavy rain</option>
-            <option value="cloudy">Cloudy sample</option>
-            <option value="low">Tank runs low</option>
-            <option value="release">Run button released</option>
-            <option value="manual">Set inputs manually</option>
-          </select>
-        </label>
         <button class="btn btn-primary" type="button" data-step>Next step</button>
         <button class="btn" type="button" data-play aria-pressed="false">Play</button>
         <button class="btn" type="button" data-reset>Reset</button>
         <span class="text-small">1 step = 1 second</span>
       </div>
-      <fieldset class="buoy-manual" data-manual hidden>
+      <fieldset class="buoy-manual" data-manual>
         <legend>Simulator inputs</legend>
         <div>
           <label><input type="checkbox" data-input="heavyRain"> Heavy rain</label>
@@ -304,19 +287,6 @@
 
       </section>
 
-      <section class="buoy-lesson" aria-labelledby="prediction-heading">
-        <h2 id="prediction-heading">Predict, then test</h2>
-        <label class="buoy-control">Class level
-          <select class="form-select" data-grade>
-            <option value="5">Grade 5 · Observe</option>
-            <option value="6">Grade 6 · Explain</option>
-            <option value="7">Grade 7 · Reason</option>
-          </select>
-        </label>
-        <p class="buoy-question" data-question></p>
-        <button class="btn" type="button" data-reveal aria-expanded="false" aria-controls="prediction-answer">Reveal explanation</button>
-        <p class="buoy-answer" id="prediction-answer" data-answer hidden></p>
-      </section>
 
       <section class="buoy-inspect" aria-labelledby="buoy-part-heading">
         <h2 id="buoy-part-heading">Explore a part</h2>
@@ -388,7 +358,6 @@
             }
           };
 
-          const scenario = root.querySelector("[data-scenario]");
           const scene = root.querySelector(".buoy-scene");
           const status = root.querySelector("[data-status]");
           const piDetail = root.querySelector("[data-pi]");
@@ -398,55 +367,10 @@
           const code = root.querySelector("[data-code]");
           const parts = Array.from(root.querySelectorAll("[data-part]"));
           const playButton = root.querySelector("[data-play]");
-          const grade = document.querySelector("[data-grade]");
-          const reveal = document.querySelector("[data-reveal]");
-          const answer = document.querySelector("[data-answer]");
           let seconds = 0;
           let stopAt = null;
           let eventUsed = false;
           let playback = null;
-
-          const lessons = {
-            calm: [
-              ["The sky and sample are clear. Will holding Run make the pump start?", "No. Run gives permission, but the controller also needs heavy rain or a cloudy sample. Try Next step and watch the pump stay off."],
-              ["Which input could you change to start a pulse on this clear day?", "Either heavy rain or a cloudy sample can request a pulse. The tank must also have water, and Run must be held. Try those combinations in manual mode."],
-              ["Why is the Run button alone not enough to start the output?", "The start rule is (rain OR cloudy) AND tank OK AND Run held AND event unused. On a clear day the first condition is false, so the whole rule is false."]
-            ],
-            rain: [
-              ["Heavy rain is forecast. When will the pump start, and how long will it run?", "It starts at the first step, 1 second, because there is rain, enough water, and Run is held. The two-second pulse ends at 3 seconds."],
-              ["The rain keeps going. Will the pump start again after its first pulse?", "No. Each event gets one two-second pulse. The rain starts the pump at 1 second and the pulse ends at 3 seconds. Both rain and cloudiness must clear before another event is allowed."],
-              ["Why does the controller remember that this rain event already used a pulse?", "Without event memory, a lasting rain signal could keep restarting the pump. The controller marks the event used when the pulse starts. It waits for both triggers to clear before allowing another pulse."]
-            ],
-            cloudy: [
-              ["There is no rain, but the sample is cloudy. Will the pump run?", "Yes, in this model either rain or cloudiness can request a pulse. With water and Run held, it starts at 1 second and stops at 3 seconds. Cloudiness alone does not prove algae are present."],
-              ["How can a cloudy sample trigger the pump even when the forecast is clear?", "The controller uses an OR rule: rain OR cloudy. Either trigger is enough, if the safety checks pass. The light sensor detects reduced light, not the kind of particle blocking it."],
-              ["Does less light through a sample give enough evidence to identify algae?", "No. Sediment and other particles can also block light. This model uses cloudiness as a trigger, but a real investigation needs additional measurements to identify the cause."]
-            ],
-            low: [
-              ["The tank drops low at 2 seconds. Will the pump finish its full pulse?", "No. It starts at 1 second, then stops at 2 seconds when the tank goes low. The float switch helps stop the pump before it runs without water."],
-              ["Which wins: the two-second timer or the low-water signal?", "The low-water check wins immediately at the next step. It stops the pump at 2 seconds, before the planned finish at 3 seconds. The event has still used its pulse."],
-              ["If we refill the tank while the same rain continues, should the pulse restart?", "It will not restart. The event was marked used when the pulse began, even though low water cut it short. Test this in manual mode: refill, step, clear both triggers, step, then trigger again."]
-            ],
-            release: [
-              ["Someone lets go of Run at 2 seconds. What happens to the pump?", "It stops at 2 seconds. Holding Run is permission to keep pumping; letting go removes that permission, even before the pulse timer ends."],
-              ["Why check the Run button while the pump is already moving water?", "Permission can change during a pulse. Checking every step lets the controller stop at 2 seconds when Run is released, instead of waiting until 3 seconds."],
-              ["If Run is held again during the same rain, will the controller restart?", "No. Releasing Run stops the pulse but does not erase the used event. Both rain and cloudiness must clear before a new pulse can begin. Try it in manual mode."]
-            ],
-            manual: [
-              ["Can you find inputs that make the pump run, then stop it early?", "Turn on rain or cloudiness, keep water present and Run held, then step. To stop early, uncheck water or Run before the next step. Changing a checkbox takes effect at the next step."],
-              ["Try rain alone, cloudiness alone, and both together. How many pulses does each event get?", "Each event gets one pulse when the tank and Run checks pass. Both triggers together still count as one event. Clear both and take a step to allow a new event."],
-              ["How would you test the OR rule, safety checks, and event memory separately?", "First test each trigger alone with both safety checks true. Then drop water or Run during a pulse. Finally restore them while the trigger stays on: no restart. Clear both triggers and step before testing a new event."]
-            ]
-          };
-
-          function updateLesson() {
-            const [question, explanation] = lessons[scenario.value][Number(grade.value) - 5];
-            document.querySelector("[data-question]").textContent = question;
-            answer.textContent = explanation;
-            answer.hidden = true;
-            reveal.setAttribute("aria-expanded", "false");
-            reveal.textContent = "Reveal explanation";
-          }
 
           function pause() {
             clearInterval(playback);
@@ -470,15 +394,7 @@
           }
 
           function readScenario() {
-            if (scenario.value === "manual") {
-              return Object.fromEntries(manualInputs.map(input => [input.dataset.input, input.checked]));
-            }
-            return {
-              heavyRain: ["rain", "low", "release"].includes(scenario.value),
-              cloudy: scenario.value === "cloudy",
-              tankOK: scenario.value !== "low" || seconds < 2,
-              runHeld: scenario.value !== "release" || seconds < 2
-            };
+            return Object.fromEntries(manualInputs.map(input => [input.dataset.input, input.checked]));
           }
 
           function step({ heavyRain, cloudy, tankOK, runHeld }) {
@@ -530,12 +446,10 @@
 
           function loadScenario() {
             pause();
-            manual.hidden = scenario.value !== "manual";
             seconds = 0;
             stopAt = null;
             eventUsed = false;
             paint(readScenario(), "Ready to check the inputs");
-            updateLesson();
           }
 
           function advance() {
@@ -544,8 +458,6 @@
             paint(readings, step(readings));
           }
 
-          scenario.addEventListener("change", loadScenario);
-          grade.addEventListener("change", updateLesson);
           root.querySelector("[data-step]").addEventListener("click", () => {
             pause();
             advance();
@@ -563,11 +475,6 @@
           root.querySelector("[data-reset]").addEventListener("click", () => {
             for (const input of manualInputs) input.checked = input.defaultChecked;
             loadScenario();
-          });
-          reveal.addEventListener("click", () => {
-            answer.hidden = !answer.hidden;
-            reveal.setAttribute("aria-expanded", String(!answer.hidden));
-            reveal.textContent = answer.hidden ? "Reveal explanation" : "Hide explanation";
           });
           const presentation = document.querySelector("[data-present]");
           presentation.addEventListener("click", () => {
@@ -617,9 +524,6 @@ h1,h2,h3 { letter-spacing:-.025em; }
 .parts-invite p { margin:0; color:var(--muted-foreground); }
 .parts-invite .btn { justify-self:end; }
 .part-glossary { margin-bottom:16px; }
-.buoy-lesson { margin-top:12px; }
-.buoy-lesson > h2 { font-size:1.25rem; }
-.buoy-lesson > h2::before { content:'For grown-ups. '; font-size:.9rem; color:var(--muted-foreground); }
 @media (max-width:800px) { #kids-idea { grid-template-columns:minmax(0,1fr); } }
 </style>
 <style>
@@ -823,7 +727,6 @@ h1,h2,h3 { letter-spacing:-.025em; }
  animateButton.onclick=startDemonstration;
  document.addEventListener('visibilitychange',()=>{if(document.hidden)cancel();});
  const kitKey=document.createElement('p');kitKey.className='science-note';kitKey.innerHTML='Find these in your kit: white/yellow Large Hub; white, two-eyed Distance Sensor on B; white Color Sensor with one dark lens on A; white/turquoise Medium Angular Motor on C. The left and right buttons are on the Hub. <a href="https://education.lego.com/en-us/product-resources/spike-prime/downloads/technical-specifications/">LEGO part reference</a>.';invite.before(kitKey);
- const lesson=root.querySelector('.buoy-lesson');const discussion=document.createElement('details');discussion.innerHTML='<summary>Discussion prompts for grades 5–7</summary>';lesson.before(discussion);discussion.append(lesson);
  const budget=document.createElement('details');budget.innerHTML='<summary>Prototype parts budget · $72.84–82.84 USD</summary><p>Prices checked November 15, 2026. Existing Pi and LEGO equipment: $0 additional. Tax and shipping excluded. Outdoor solar and weatherproof enclosure are conceptual and excluded.</p><table class="budget-table"><thead><tr><th>Quantity / component</th><th>USD</th></tr></thead><tbody><tr><td>1 pump · <a href="https://www.adafruit.com/product/3910">Adafruit 3910</a></td><td>24.95</td></tr><tr><td>1 driver + cable · <a href="https://www.adafruit.com/product/5648">driver</a> / <a href="https://www.adafruit.com/product/3893">cable</a></td><td>5.20</td></tr><tr><td>1 pump supply + adapter · <a href="https://www.sparkfun.com/wall-adapter-power-supply-5vdc-2a-barrel-jack.html">supply</a> / <a href="https://www.sparkfun.com/dc-barrel-jack-adapter-female.html">adapter</a></td><td>13.25</td></tr><tr><td>1 float · <a href="https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor">float switch</a></td><td>7.99</td></tr><tr><td>1 ADC + photoresistor · <a href="https://www.adafruit.com/product/856">ADC</a> / <a href="https://www.adafruit.com/product/161">sensor</a></td><td>5.45</td></tr><tr><td>Shared wiring, buttons, LEDs and resistors · estimate</td><td>12–18</td></tr><tr><td>Shared cups and craft supplies · estimate</td><td>4–8</td></tr><tr><td>Optional Pi supply + microSD · <a href="https://www.adafruit.com/product/1995">supply</a> / <a href="https://www.pishop.us/product/class-10-microsd-card-with-raspberry-pi-os-bookworm-32gb/">card</a></td><td>28.20 additional</td></tr></tbody></table><p>With both optional items: $101.04–111.04. Shared supplies are counted once.</p>';root.append(budget);
 })();
 </script>

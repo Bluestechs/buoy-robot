@@ -12,15 +12,15 @@ Read [Proposed by the kids](demo.html#kids-idea) for their original problem stat
 
 ## Try the simulator
 
-The homepage targets ages 7–10 with four themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot, the simulator, then **Meet the parts**. Optional discussion and budget material comes afterward. The earlier **Be the weather** prediction game was removed.
+The homepage targets ages 7–10 with four themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot, the simulator, then **Meet the parts**. Optional prototype budget material comes afterward. The earlier **Be the weather** prediction game was removed, along with the scenario presets and grade 5–7 discussion prompts.
 
 The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Feedback shows the current forecast, sample, tank, and run state plus the pump output. Nothing about the visitor is stored.
 
-**Start over** restores clear weather, a clear sample, water present, and Run held. The scene menu offers five ready-made scenarios plus a manual-input mode. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
+**Start over** restores clear weather, a clear sample, water present, and Run held. Set the four switches directly in **Simulator inputs**. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
 
 Above the simulator controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
-The muted blue presentation uses a light theme regardless of the operating system setting. Discussion prompts and the prototype parts budget expand below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
+The muted blue presentation uses a light theme regardless of the operating system setting. The prototype parts budget expands below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
 Each animation now has three named steps and enlarged close-ups under both device views. Small movements are exaggerated so the class can follow the action. Use **Stop animation** to stop early or **Replay animation** after it finishes. The final caption stays visible for discussion. Reduced-motion settings keep the explanations and static state changes. LEGO parts use distinct kit shapes and names: Large Hub, Color Sensor on A, Distance Sensor on B, and Medium Angular Motor on C. The model spaces parts out for clarity; it is not an assembly or wiring guide.
 
@@ -30,16 +30,15 @@ Select a part on either model to compare its job: **green** marks the part you p
 
 On the explorer, select a model component to open its details between the two devices. Both devices stay visible during the animation. On smaller screens, the outdoor model, details and LEGO model stack without overlap. Green marks the selected part and blue its counterpart, with labels that do not rely on color alone. Photos live in `images/` as ordinary static files. Photo credits link to Adafruit or AceCrew.
 
-Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Choose a scenario or use **Set inputs manually**, then click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the scenario to time zero. Changing scenarios also stops playback and resets the controller.
+Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Set the four **Simulator inputs** switches, then click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the simulation to time zero.
 
 For a classroom presentation:
 
 1. Choose **Presentation view** for a larger stage with the hardware details hidden. Use **Exit presentation** to return to the full page. This changes the page layout, not the browser's fullscreen setting.
-2. Expand **Discussion prompts for grades 5–7**, then choose Grade 5, 6, or 7. Grade 5 asks students to predict observations, Grade 6 explores the control rules, and Grade 7 asks about evidence, safety checks, and event memory.
-3. Read the question before running the scenario. Take steps together, watch the pump status and countdown, then select **Reveal explanation**. Each scenario has its own questions; changing grade or scenario hides the explanation again.
-4. Try **Heavy rain**: the pump starts at 1 second and stops at 3 seconds. Then try **Tank runs low** or **Run button released**: the pump stops early at 2 seconds.
+2. Select a part on either model to open its details; use **Watch it move** for a three-step close-up. The demonstration does not change the simulator.
+3. In **Simulator inputs**, check **Heavy rain**, keep the tank and Run held, and step: the pump starts at 1 second and stops at 3 seconds. Uncheck the tank or Run during a pulse: the pump stops early at the next step.
 
-Choose **Set inputs manually** to change the four inputs independently before taking a step. Checkbox changes take effect at the next step. Reset restores the manual inputs to clear weather, clear sample, water present, and Run held. Select a part button to highlight it in the diagram and compare the Raspberry Pi and LEGO SPIKE Prime versions. All controls work with the keyboard, and the animation respects reduced-motion settings. Playback pauses when the browser tab is hidden.
+Change the four **Simulator inputs** switches independently before taking a step. Checkbox changes take effect at the next step. Reset restores the manual inputs to clear weather, clear sample, water present, and Run held. Select a part button to highlight it in the diagram and compare the Raspberry Pi and LEGO SPIKE Prime versions. All controls work with the keyboard, and the animation respects reduced-motion settings. Playback pauses when the browser tab is hidden.
 
 The page simulates the controller in JavaScript and runs independently of the Python program and hardware. The diagram shows food-colored water moving into a catch cup; cloudiness alone is not evidence of algae.
 
