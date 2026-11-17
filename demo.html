@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Proposed by the kids · explore their rain robot idea</title>
-  <meta name="description" content="The kids' proposed algae-bloom solution, their not-yet-modeled concepts, two same-job robot models, and the parts that stand in for the idea.">
+  <title>Proposed by the LEGO engineers · explore their rain robot idea</title>
+  <meta name="description" content="The LEGO engineers' proposed algae-bloom solution, their not-yet-modeled concepts, two same-job robot models, and the parts that stand in for the idea.">
   <style>
     :root {
       color-scheme: light dark;
@@ -75,12 +75,12 @@
   <main>
     <header>
       <div>
-      <h1>Proposed by the kids</h1>
+      <h1>Proposed by the LEGO engineers</h1>
       <p>They imagined a way to help a lake. We helped picture their idea.</p>
       </div>
       <button class="btn" type="button" data-present aria-pressed="false">Presentation view</button>
     </header>
-    <section class="kids-idea" id="kids-idea" aria-label="The kids' proposed solution">
+    <section class="kids-idea" id="kids-idea" aria-label="The LEGO engineers' proposed solution">
       <p class="idea-credit">They did the work. These are their original problem and proposed solutions, in their own words. If they had more time, it might have gotten here. They might do it differently next time.</p>
       <article class="kid-work">
         <h2>The Problem</h2>
@@ -92,7 +92,7 @@
       </article>
       <div class="kid-concepts">
         <h2>In their plan, but not in a model yet</h2>
-        <p>The kids wrote more ideas than the robots show. These parts of their plan are still concepts — no model or prototype builds them yet.</p>
+        <p>The LEGO engineers wrote more ideas than the robots show. These parts of their plan are still concepts — no model or prototype builds them yet.</p>
         <ul>
           <li><strong>A levee around the farm.</strong> "…a levee to surround the edge of a farm to catch and absorb the water runoff with fertilizer." No model yet.</li>
           <li><strong>A lake boat with beneficial bacteria.</strong> "…every year a boat would drive around a lake or an inlet and release beneficial bacteria, which will eat the phosphorus and nitrogen fertilizer and essentially starve the algae." No model yet.</li>
@@ -100,7 +100,7 @@
           <li><strong>A sprayer on the side.</strong> "The water tank would lead to a sprayer on the side that would spray the water and spread the sodium peroxyhydrate on top." The model shows a pump moving water instead.</li>
           <li><strong>A water filter.</strong> "The battery would then power a transmitter, small CPU, a water filter, and an antenna." No model or part yet.</li>
         </ul>
-        <p class="concept-note">Quoted from the kids' proposal above, in their own words.</p>
+        <p class="concept-note">Quoted from the LEGO engineers' proposal above, in their own words.</p>
       </div>
     </section>
     <section id="team-buoy">
@@ -120,8 +120,8 @@
       <section class="buoy-story" data-phase="calm" aria-labelledby="story-heading">
         <p class="eyebrow">Their plan, animated for fun</p>
         <h2 id="story-heading">Watch their idea work</h2>
-        <p class="science-note">One imagined minute from the kids' plan: the antenna hears a heavy-rain forecast, the small CPU opens the valve, the two tanks mix, and the side sprayer spreads the mix on top of the water. A story sketch, not a tested device.</p>
-        <svg class="story-scene" viewBox="0 0 900 430" role="img" aria-label="The kids' buoy hears a rain forecast, mixes its two tanks, and sprays the mix over the water; the algae nearby fades.">
+        <p class="science-note">One imagined minute from the LEGO engineers' plan — none of this was built yet, but here is how their idea could have worked: the antenna hears a heavy-rain forecast, the small CPU opens the valve, the two tanks mix, and the side sprayer spreads the mix on top of the water. A story sketch, not a tested device.</p>
+        <svg class="story-scene" viewBox="0 0 900 430" role="img" aria-label="The LEGO engineers' buoy hears a rain forecast, mixes its two tanks, and sprays the mix over the water; the algae nearby fades.">
           <rect x="0" y="0" width="900" height="300" rx="18" fill="#eaf5fb"/>
           <g class="sun" stroke="#d7a72c" stroke-width="4" fill="#f5d66b">
             <circle cx="790" cy="70" r="30"/>
@@ -337,19 +337,20 @@ h1,h2,h3 { letter-spacing:-.025em; }
    Resistor:['A part that limits electric current','It helps control how much electricity flows through a circuit.'],
    'microSD':['A small Secure Digital memory card','It stores the Pi\'s software and our program, like a tiny bookshelf for computer files.'],
    USD:['United States dollars','The currency used for the prices below.'],
-   Transmitter:['A sender','A part that sends radio messages. The kids planned one to pass the forecast to the CPU.'],
-   Valve:['A gate for flow','A part that lets water through one way. The kids planned a one-way valve so the mix goes out and cannot flow back.'],
-   Sprayer:['A spray head','A nozzle that spreads water on top. The kids planned one on the side of the buoy.'],
+   Transmitter:['A sender','A part that sends radio messages. The LEGO engineers imagined one to pass the forecast to the CPU.'],
+   Valve:['A gate for flow','A part that lets water through one way. The LEGO engineers imagined a one-way valve so the mix goes out and cannot flow back.'],
+   Sprayer:['A spray head','A nozzle that spreads water on top. The LEGO engineers imagined one on the side of the buoy.'],
+   'Sodium peroxyhydrate':['A powder that makes oxygen bubbles','The chemical the LEGO engineers chose for their algae-killer tank. We never use it in class; the demo just uses colored water.'],
    'OR / AND / NOT':['Words that help code make choices','OR means either condition can be true. AND means both must be true. NOT means the opposite.']
  };
  const partGuide={
-   weather:{label:'Antenna & transmitter',photo:'button',caption:'Example forecast button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Get the heavy-rain message from the weather network.',plain:'The kids put an antenna on top that connects to the weather network, plus a transmitter that passes the message to the CPU. A forecast is a prediction, not a measurement. For the tabletop idea, pressing a button pretends that a heavy-rain message has arrived.',lego:'Hold the LEGO Hub\'s left button to pretend that a heavy-rain message has arrived. It stands in for the kids\' antenna and transmitter.',words:['Transmitter','GPIO']},
-   power:{label:'Solar panels & battery',photo:'power',caption:'Example Pi power adapter',alt:'Black wall power adapter with a cable for a Raspberry Pi',source:'https://www.adafruit.com/product/1995',credit:'Adafruit',short:'Sunlight charges the battery that powers the parts.',plain:'The kids put solar panels on top of the buoy to charge a battery inside. The battery powers the transmitter, the small CPU, the water filter, and the antenna. The tabletop Pi and pump use separate plug-in supplies. This photo shows the optional Pi adapter.',lego:'The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the kids\' idea.',words:['SPIKE']},
-   pi:{label:'Small CPU',photo:'pi',caption:'Raspberry Pi 3',alt:'Green Raspberry Pi 3 circuit board with metal sockets and a row of connection pins',source:'https://www.adafruit.com/product/3055',credit:'Adafruit',short:'Read the sensors and decide when to release the treatment.',plain:'The kids\' small CPU listens for two triggers: a heavy-rain forecast, or the water sensor finding an overabundance of algae. When a trigger comes, it opens the valve and mixes the water. Our model runs the pump for a two-second pulse instead, and it remembers when an event has already used its turn.',lego:'The LEGO Hub is the model\'s small computer. It follows the same rules using LEGO sensors and a motor.',words:['Python','GPIO','Pulse']},
-   run:{label:'Hold-to-run (safety extra)',photo:'button',caption:'Example hold-to-run button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Hold to allow pumping. Let go to stop.',plain:'This button is not in the kids\' plan. We added it as a classroom safety rule so the pump cannot run without a person holding permission. A rain or cloudy-water signal is still needed to start.',lego:'Hold the LEGO Hub\'s right button to allow the motor to run. Letting go tells it to stop.',words:['GPIO']},
-   tanks:{label:'Two tanks & one-way valve',photo:'tanks',caption:'Float switch',alt:'White float switch with a movable floating ring, stem, and wires',source:'https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor',credit:'AceCrew',short:'Hold the treatment water and check the level.',plain:'The kids planned two tanks: one holds a sodium peroxyhydrate solution that can kill algae, and the other holds water behind a one-way valve. When heavy rain is forecast, the CPU opens the valve and mixes the water. Our demo cups hold colored water, and the float switch only checks that there is enough water to pump.',lego:'A distance sensor measures how far away a dry marker is. Moving the marker farther away pretends that the tank is low. No water goes near the LEGO sensor.',words:['Valve','Port']},
-   pump:{label:'Pump & sprayer',photo:'pump',caption:'Pump with soft tubing',alt:'Small pump with a metal motor, black roller housing, and clear flexible tubing',source:'https://www.adafruit.com/product/3910',credit:'Adafruit',short:'Send the mixed water out over the surface.',plain:'The kids\' water tank leads to a sprayer on the side that sprays the mix on top of the water. Our tabletop pump squeezes a soft tube to push water along, a little like squeezing toothpaste, and moves food-colored water into a cup. It shows the sending job, not a real sprayer.',lego:'A LEGO motor spins a wheel or flag to show when the sprayer would run. It is a dry stand-in for moving water.',words:['MOSFET','Pulse','Port','Sprayer']},
-   optics:{label:'Water sensor',photo:'optics',caption:'Photoresistor',alt:'Round light sensor with a squiggly track on its face and two metal legs',source:'https://www.adafruit.com/product/161',credit:'Adafruit',short:'Watch the water for an algae overabundance.',plain:'The kids put a sensor on the bottom of the buoy to watch for an overabundance of algae. Our tabletop stand-in shines a tiny light through a water sample and measures how much gets through. Cloudy water blocks more light, but sediment can also block it, so cloudiness alone does not prove algae.',lego:'The LEGO Color Sensor measures light bouncing off a card. A light card stands for clear water; a dark card stands for cloudy water. Keep the card the same distance away.',words:['LED','Photoresistor','ADC','MCP3008']}
+   weather:{label:'Antenna & transmitter',photo:'button',caption:'Example forecast button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Get the heavy-rain message from the weather network.',plain:'The LEGO engineers imagined an antenna on top that connects to the weather network, plus a transmitter that passes the message to the CPU. A forecast is a prediction, not a measurement. For the tabletop idea, pressing a button pretends that a heavy-rain message has arrived.',lego:'Hold the LEGO Hub\'s left button to pretend that a heavy-rain message has arrived. It stands in for the LEGO engineers\' antenna and transmitter.',words:['Transmitter','GPIO']},
+   power:{label:'Solar panels & battery',photo:'power',caption:'Example Pi power adapter',alt:'Black wall power adapter with a cable for a Raspberry Pi',source:'https://www.adafruit.com/product/1995',credit:'Adafruit',short:'Sunlight charges the battery that powers the parts.',plain:'The LEGO engineers imagined solar panels on top of the buoy to charge a battery inside. The battery powers the transmitter, the small CPU, the water filter, and the antenna. The tabletop Pi and pump use separate plug-in supplies. This photo shows the optional Pi adapter.',lego:'The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the LEGO engineers\' idea.',words:['SPIKE']},
+   pi:{label:'Small CPU',photo:'pi',caption:'Raspberry Pi 3',alt:'Green Raspberry Pi 3 circuit board with metal sockets and a row of connection pins',source:'https://www.adafruit.com/product/3055',credit:'Adafruit',short:'Read the sensors and decide when to release the treatment.',plain:'The LEGO engineers\' small CPU listens for two triggers: a heavy-rain forecast, or the water sensor finding an overabundance of algae. When a trigger comes, it opens the valve and mixes the water. Our model runs the pump for a two-second pulse instead, and it remembers when an event has already used its turn.',lego:'The LEGO Hub is the model\'s small computer. It follows the same rules using LEGO sensors and a motor.',words:['Python','GPIO','Pulse']},
+   run:{label:'Hold-to-run (safety extra)',photo:'button',caption:'Example hold-to-run button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Hold to allow pumping. Let go to stop.',plain:'This button is not in the LEGO engineers\' plan. We added it as a classroom safety rule so the pump cannot run without a person holding permission. A rain or cloudy-water signal is still needed to start.',lego:'Hold the LEGO Hub\'s right button to allow the motor to run. Letting go tells it to stop.',words:['GPIO']},
+   tanks:{label:'Two tanks & one-way valve',photo:'tanks',caption:'Float switch',alt:'White float switch with a movable floating ring, stem, and wires',source:'https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor',credit:'AceCrew',short:'Hold the treatment water and check the level.',plain:'The LEGO engineers imagined two tanks: one holds a sodium peroxyhydrate solution that can kill algae, and the other holds water behind a one-way valve. When heavy rain is forecast, the CPU opens the valve and mixes the water. Our demo cups hold colored water, and the float switch only checks that there is enough water to pump.',lego:'A distance sensor measures how far away a dry marker is. Moving the marker farther away pretends that the tank is low. No water goes near the LEGO sensor.',words:['Valve','Sodium peroxyhydrate','Port']},
+   pump:{label:'Pump & sprayer',photo:'pump',caption:'Pump with soft tubing',alt:'Small pump with a metal motor, black roller housing, and clear flexible tubing',source:'https://www.adafruit.com/product/3910',credit:'Adafruit',short:'Send the mixed water out over the surface.',plain:'The LEGO engineers\' water tank leads to a sprayer on the side that sprays the mix on top of the water. Our tabletop pump squeezes a soft tube to push water along, a little like squeezing toothpaste, and moves food-colored water into a cup. It shows the sending job, not a real sprayer.',lego:'A LEGO motor spins a wheel or flag to show when the sprayer would run. It is a dry stand-in for moving water.',words:['MOSFET','Pulse','Port','Sprayer']},
+   optics:{label:'Water sensor',photo:'optics',caption:'Photoresistor',alt:'Round light sensor with a squiggly track on its face and two metal legs',source:'https://www.adafruit.com/product/161',credit:'Adafruit',short:'Watch the water for an algae overabundance.',plain:'The LEGO engineers imagined a sensor on the bottom of the buoy to watch for an overabundance of algae. Our tabletop stand-in shines a tiny light through a water sample and measures how much gets through. Cloudy water blocks more light, but sediment can also block it, so cloudiness alone does not prove algae.',lego:'The LEGO Color Sensor measures light bouncing off a card. A light card stands for clear water; a dark card stands for cloudy water. Keep the card the same distance away.',words:['LED','Photoresistor','ADC','MCP3008']}
  };
  function explainWords(keys){const list=document.createElement('dl');list.className='word-definitions';for(const key of keys){const row=document.createElement('div');const term=document.createElement('dt');term.textContent=key;const meaning=document.createElement('dd');meaning.textContent=wordBook[key][0]+'. '+wordBook[key][1];row.append(term,meaning);list.append(row);}return list;}
  const python={weather:'heavy_rain = forecast.is_pressed',power:'# Power comes from hardware, not code.\n# Outdoor solar is conceptual.\n# Prototype: separate Pi and pump supplies.',pi:'event = heavy_rain or cloudy\nif stop_at is not None:\n    if not tank_ok or not run_held or now >= stop_at:\n        stop_at = None\nelif not event:\n    event_used = False\nelif tank_ok and run_held and not event_used:\n    event_used = True\n    stop_at = now + 2\n\npump.value = stop_at is not None',run:'run_held = run_button.is_pressed\nif not run_held:\n    pump.off()',tanks:'tank_ok = float_switch.is_pressed\nif not tank_ok:\n    pump.off()',pump:'# Repeat while checking the inputs.\nif stop_at is not None:\n    if not tank_ok or not run_held or now >= stop_at:\n        stop_at = None\npump.value = stop_at is not None',optics:'light = sensor.value\ncloudy = light < calibrated_cutoff'};
@@ -465,10 +466,13 @@ h1,h2,h3 { letter-spacing:-.025em; }
    tab(kind);pop.hidden=false;pop.scrollTop=0;modelPair.classList.add('has-details');document.body.classList.add('part-selected');selectMapping(button);mappingSummary.scrollIntoView({block:'start',behavior:'instant'});pop.querySelector('[data-close-part]').focus({preventScroll:true});
  }
  const invite=document.createElement('div');invite.className='explorer-parts parts-invite';invite.setAttribute('aria-label','Meet the parts');section.querySelector('.model-pair').after(invite);
- invite.innerHTML='<h3>Meet the parts</h3><p>Six parts stand in for the kids\' buoy idea, plus one safety add. Meet the antenna, tanks, sprayer, sensor and computer.</p>';
+ invite.innerHTML='<h3>Meet the parts</h3><p>Six parts stand in for the LEGO engineers\' buoy idea, plus one safety extra. Meet the antenna, tanks, sprayer, sensor and computer.</p>';
  const inviteLink=document.createElement('a');inviteLink.className='btn btn-primary';inviteLink.href='parts.html';inviteLink.textContent='Meet the parts →';
  invite.append(inviteLink);
  const wordsHeading=document.createElement('h3');wordsHeading.textContent='Words made simple';const partWords=document.createElement('div');partWords.dataset.partWords='';pop.querySelector('[data-part-cost]').after(wordsHeading,partWords);const photoSource=document.createElement('a');photoSource.dataset.photoSource='';const photoCredit=document.createElement('p');photoCredit.className='text-small';photoCredit.append(photoSource);partWords.after(photoCredit);
+const mentor=document.createElement('details');mentor.className='part-mentor';mentor.innerHTML='<summary>For mentors: code, cost and words</summary>';
+photoCredit.parentNode.insertBefore(mentor,pop.querySelector('[data-part-cost]'));
+let trailing=mentor.nextElementSibling;while(trailing){const next=trailing.nextElementSibling;mentor.append(trailing);trailing=next;}
  const glossary=document.createElement('details');glossary.className='part-glossary';const glossarySummary=document.createElement('summary');glossarySummary.textContent='Word helper: what do these letters mean?';glossary.append(glossarySummary,explainWords(Object.keys(wordBook)));invite.after(glossary);
  root.querySelectorAll('[data-hotspot]').forEach(e=>{e.addEventListener('click',()=>open(e.dataset.hotspot,e,e.closest('[data-model]').dataset.model==='lego'?'lego':'python'));const preview=active=>{root.querySelectorAll(`[data-hotspot="${e.dataset.hotspot}"]`).forEach(match=>{match.classList.toggle('preview',active);});};e.addEventListener('pointerenter',()=>preview(true));e.addEventListener('pointerleave',()=>preview(false));e.addEventListener('focus',()=>preview(true));e.addEventListener('blur',()=>preview(false));e.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();e.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});});
  pop.querySelectorAll('[data-code-tab]').forEach(b=>{b.onclick=()=>tab(b.dataset.codeTab);});function close(){cancel();pop.hidden=true;clearMapping();modelPair.classList.remove('has-details');document.body.classList.remove('part-selected');origin?.focus();}pop.querySelector('[data-close-part]').onclick=close;document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pop.hidden)close();});
@@ -538,6 +542,7 @@ body.part-selected main {max-width:1800px}
 .model-pair #part-popover pre {padding:18px;line-height:1.55;margin-block:16px}
 .model-pair #part-popover .code-block {padding:14px 18px;line-height:1.5}
 .model-pair #part-popover [data-animation-status]:empty {display:none}
+.part-mentor { margin-top:16px; padding-top:12px; border-top:1px solid var(--border); }
 .model-pair #part-popover [data-animate-part] {margin:4px 0 8px}
 .budget-table td,.budget-table th {padding:16px}
 @keyframes details-appear {from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:translateY(0)}}

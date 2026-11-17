@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Meet the parts — Rain-response buoy</title>
-  <meta name="description" content="Photos and plain-language jobs for the tabletop parts that stand in for the kids' buoy idea.">
+  <meta name="description" content="Photos and plain-language jobs for the tabletop parts that stand in for the LEGO engineers' buoy idea.">
   <style>
     :root { color-scheme: light; --background:#e4eef4; --foreground:#18374c; --muted:#466479;
       --control:#d5e5ee; --rule:#91adbd; --primary:#185f83; --on-primary:#fff; font:100%/1.5 system-ui,sans-serif; }
@@ -43,7 +43,7 @@
     <header>
       <a class="btn back" href="demo.html">← Back to the explorer</a>
       <h1>Meet the parts</h1>
-      <p>Six parts stand in for the kids' buoy idea, plus one safety add. Meet each part and see what it does.</p>
+      <p>Six parts stand in for the LEGO engineers' buoy idea, plus one safety extra. Meet each part and see what it does.</p>
       <p class="note">Photos show example tabletop parts, not a finished outdoor buoy.</p>
     </header>
 
@@ -51,14 +51,14 @@
       <h2>Antenna &amp; transmitter</h2>
       <img src="images/button.jpeg" alt="Close-up of a small black push button with four metal legs" width="310" height="233">
       <p class="short">Get the heavy-rain message from the weather network.</p>
-      <p>The kids put an antenna on top that connects to the weather network, plus a transmitter that passes the message to the CPU. A forecast is a prediction, not a measurement. For our tabletop idea, pressing a button pretends that a heavy-rain message has arrived.</p>
-      <p class="lego"><strong>LEGO:</strong> Hold the LEGO Hub's left button to pretend that a heavy-rain message has arrived. It stands in for the kids' antenna and transmitter.</p>
+      <p>The LEGO engineers imagined an antenna on top that connects to the weather network, plus a transmitter that passes the message to the CPU. A forecast is a prediction, not a measurement. For our tabletop idea, pressing a button pretends that a heavy-rain message has arrived.</p>
+      <p class="lego"><strong>LEGO:</strong> Hold the LEGO Hub's left button to pretend that a heavy-rain message has arrived. It stands in for the LEGO engineers' antenna and transmitter.</p>
       <p class="cost">Included in shared $12–18 wiring/button kit.</p>
       <h3>What the program does</h3>
       <pre>heavy_rain = forecast.is_pressed</pre>
       <ul class="blocks"><li>Forever</li><li>Set rain to left button pressed?</li></ul>
       <h3>Words</h3>
-      <dl class="words"><div><dt>Transmitter</dt><dd>A part that sends radio messages. The kids planned one to pass the forecast to the CPU.</dd></div><div><dt>GPIO</dt><dd>General-purpose input/output. Small connection pins on the Pi. They let it hear from a button or send a signal to another part.</dd></div></dl>
+      <dl class="words"><div><dt>Transmitter</dt><dd>A part that sends radio messages. The LEGO engineers imagined one to pass the forecast to the CPU.</dd></div><div><dt>GPIO</dt><dd>General-purpose input/output. Small connection pins on the Pi. They let it hear from a button or send a signal to another part.</dd></div></dl>
       <p class="credit"><a href="https://www.adafruit.com/product/367">Example forecast button photo: Adafruit</a></p>
     </article>
 
@@ -66,8 +66,8 @@
       <h2>Solar &amp; battery</h2>
       <img src="images/power.jpeg" alt="Black wall power adapter with a cable for a Raspberry Pi" width="310" height="233">
       <p class="short">Sunlight charges the battery that powers the parts.</p>
-      <p>The kids put solar panels on top of the buoy to charge a battery inside. The battery powers the transmitter, the small CPU, the water filter, and the antenna. The tabletop Pi and pump use separate plug-in supplies; this photo shows the optional Pi adapter.</p>
-      <p class="lego"><strong>LEGO:</strong> The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the kids' idea.</p>
+      <p>The LEGO engineers imagined solar panels on top of the buoy to charge a battery inside. The battery powers the transmitter, the small CPU, the water filter, and the antenna. The tabletop Pi and pump use separate plug-in supplies; this photo shows the optional Pi adapter.</p>
+      <p class="lego"><strong>LEGO:</strong> The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the LEGO engineers' idea.</p>
       <p class="cost">Pump supply + adapter: $13.25. Outdoor solar/enclosure excluded.</p>
       <h3>What the program does</h3>
       <pre># Power comes from hardware, not code.
@@ -83,7 +83,7 @@
       <h2>Small CPU</h2>
       <img src="images/pi.jpeg" alt="Green Raspberry Pi 3 circuit board with metal sockets and a row of connection pins" width="310" height="233">
       <p class="short">Read the sensors and decide when to release the treatment.</p>
-      <p>The Raspberry Pi is the kids' small CPU for our model. It reads the inputs and decides when the pump should run; in the kids' plan, the CPU would open the valve and mix the water instead. It remembers when a rain or cloudy-water event has already used its turn.</p>
+      <p>The Raspberry Pi is the LEGO engineers' small CPU for our model. It reads the inputs and decides when the pump should run; in the LEGO engineers' plan, the CPU would open the valve and mix the water instead. It remembers when a rain or cloudy-water event has already used its turn.</p>
       <p class="lego"><strong>LEGO:</strong> The LEGO Hub is the model's small computer. It follows the same rules using LEGO sensors and a motor.</p>
       <p class="cost">Raspberry Pi and LEGO hub already owned: $0 additional.</p>
       <h3>What the program does</h3>
@@ -112,7 +112,7 @@ pump.value = stop_at is not None</pre>
       <h2>Run button (safety extra)</h2>
       <img src="images/button.jpeg" alt="Close-up of a small black push button with four metal legs" width="310" height="233">
       <p class="short">Hold to allow pumping. Let go to stop.</p>
-      <p>This button is not in the kids' plan; it is our classroom safety rule. The pump may run only while someone holds it. Letting go tells the computer to stop the pump at its next check. A rain or cloudy-water signal is still needed to start.</p>
+      <p>This button is not in the LEGO engineers' plan; it is our classroom safety rule. The pump may run only while someone holds it. Letting go tells the computer to stop the pump at its next check. A rain or cloudy-water signal is still needed to start.</p>
       <p class="lego"><strong>LEGO:</strong> Hold the LEGO Hub's right button to allow the motor to run. Letting go tells it to stop.</p>
       <p class="cost">Included in shared $12–18 wiring/button kit.</p>
       <h3>What the program does</h3>
@@ -129,7 +129,7 @@ if not run_held:
       <h2>Two tanks &amp; one-way valve</h2>
       <img src="images/tanks.jpeg" alt="White float switch with a movable floating ring, stem, and wires" width="310" height="233">
       <p class="short">Hold the treatment water and check the level.</p>
-      <p>The kids planned two tanks: one holds a sodium peroxyhydrate solution that can kill algae, and the other holds water behind a one-way valve. When heavy rain is forecast, the CPU opens the valve and mixes the water. Our cups hold the demo water, and the float switch checks that there is enough to pump: a float rides on top of the water like a tiny boat, and as it drops it tells the computer to stop.</p>
+      <p>The LEGO engineers imagined two tanks: one holds a sodium peroxyhydrate solution that can kill algae, and the other holds water behind a one-way valve. When heavy rain is forecast, the CPU opens the valve and mixes the water. Our cups hold the demo water, and the float switch checks that there is enough to pump: a float rides on top of the water like a tiny boat, and as it drops it tells the computer to stop.</p>
       <p class="lego"><strong>LEGO:</strong> A distance sensor measures how far away a dry marker is. Moving the marker farther away pretends that the tank is low. No water goes near the LEGO sensor.</p>
       <p class="cost">Float: $7.99; cups/craft supplies: $4–8 shared.</p>
       <h3>What the program does</h3>
@@ -138,7 +138,7 @@ if not tank_ok:
     pump.off()</pre>
       <ul class="blocks"><li>Forever</li><li>Set tank OK to valid distance on B below cutoff</li><li>If NOT tank OK: stop motor C; set running false</li></ul>
       <h3>Words</h3>
-      <dl class="words"><div><dt>Valve</dt><dd>A gate for flow. The kids planned a one-way valve so the mix goes out and cannot flow back.</dd></div><div><dt>Port</dt><dd>A plug-in connection. A, B, and C name sockets on the LEGO Hub, like labels on doors.</dd></div></dl>
+      <dl class="words"><div><dt>Valve</dt><dd>A gate for flow. The LEGO engineers imagined a one-way valve so the mix goes out and cannot flow back.</dd></div><div><dt>Sodium peroxyhydrate</dt><dd>A powder that makes oxygen bubbles. The chemical the LEGO engineers chose for their algae-killer tank. We never use it in class; the demo just uses colored water.</dd></div><div><dt>Port</dt><dd>A plug-in connection. A, B, and C name sockets on the LEGO Hub, like labels on doors.</dd></div></dl>
       <p class="credit"><a href="https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor">Float switch photo: AceCrew</a></p>
     </article>
 
@@ -146,7 +146,7 @@ if not tank_ok:
       <h2>Pump &amp; sprayer</h2>
       <img src="images/pump.jpeg" alt="Small pump with a metal motor, black roller housing, and clear flexible tubing" width="310" height="233">
       <p class="short">Send the mixed water out over the surface.</p>
-      <p>The kids' water tank leads to a sprayer on the side that sprays the mix on top of the water. Our tabletop pump squeezes a soft tube to push water along, a little like squeezing toothpaste, and moves food-colored water into a cup. A separate electronic switch lets the computer turn it on and off.</p>
+      <p>The LEGO engineers' water tank leads to a sprayer on the side that sprays the mix on top of the water. Our tabletop pump squeezes a soft tube to push water along, a little like squeezing toothpaste, and moves food-colored water into a cup. A separate electronic switch lets the computer turn it on and off.</p>
       <p class="lego"><strong>LEGO:</strong> A LEGO motor spins a wheel or flag to show when the sprayer would run. It is a dry stand-in for moving water.</p>
       <p class="cost">Pump: $24.95; driver + cable: $5.20. LEGO motor already owned.</p>
       <h3>What the program does</h3>
@@ -159,7 +159,7 @@ pump.value = stop_at is not None</pre>
       <h3>Words</h3>
       <dl class="words">
         <div><dt>MOSFET</dt><dd>Metal-oxide-semiconductor field-effect transistor. A tiny electronic switch. It lets the Pi turn the pump's separate power supply on or off.</dd></div>
-        <div><dt>Sprayer</dt><dd>A spray head that spreads water on top. The kids planned one on the side of the buoy.</dd></div>
+        <div><dt>Sprayer</dt><dd>A spray head that spreads water on top. The LEGO engineers imagined one on the side of the buoy.</dd></div>
         <div><dt>Pulse</dt><dd>A short burst. Here, the pump runs for up to two seconds, then stops.</dd></div>
         <div><dt>Port</dt><dd>A plug-in connection. A, B, and C name sockets on the LEGO Hub, like labels on doors.</dd></div>
       </dl>
@@ -170,7 +170,7 @@ pump.value = stop_at is not None</pre>
       <h2>Water sensor</h2>
       <img src="images/optics.jpeg" alt="Round light sensor with a squiggly track on its face and two metal legs" width="310" height="233">
       <p class="short">Watch the water for an algae overabundance.</p>
-      <p>The kids put a sensor on the bottom of the buoy to watch for an overabundance of algae. Our tabletop stand-in shines a tiny light through a water sample and measures how much gets through. Cloudy water blocks more light, but sediment can also block it, so cloudiness alone does not tell us whether algae caused it.</p>
+      <p>The LEGO engineers imagined a sensor on the bottom of the buoy to watch for an overabundance of algae. Our tabletop stand-in shines a tiny light through a water sample and measures how much gets through. Cloudy water blocks more light, but sediment can also block it, so cloudiness alone does not tell us whether algae caused it.</p>
       <p class="lego"><strong>LEGO:</strong> The LEGO Color Sensor measures light bouncing off a card. A light card stands for clear water; a dark card stands for cloudy water. Keep the card the same distance away.</p>
       <p class="cost">MCP3008 + photoresistor: $5.45; LED/resistors in shared kit.</p>
       <h3>What the program does</h3>
@@ -204,14 +204,15 @@ cloudy = light &lt; calibrated_cutoff</pre>
         <div><dt>microSD</dt><dd>A small Secure Digital memory card. It stores the Pi's software and our program, like a tiny bookshelf for computer files.</dd></div>
         <div><dt>USD</dt><dd>United States dollars. The currency used for the prices below.</dd></div>
         <div><dt>OR / AND / NOT</dt><dd>Words that help code make choices. OR means either condition can be true. AND means both must be true. NOT means the opposite.</dd></div>
-        <div><dt>Transmitter</dt><dd>A part that sends radio messages. The kids planned one to pass the forecast to the CPU.</dd></div>
-        <div><dt>Valve</dt><dd>A gate for flow. The kids planned a one-way valve so the mix goes out and cannot flow back.</dd></div>
-        <div><dt>Sprayer</dt><dd>A spray head that spreads water on top. The kids planned one on the side of the buoy.</dd></div>
+        <div><dt>Transmitter</dt><dd>A part that sends radio messages. The LEGO engineers imagined one to pass the forecast to the CPU.</dd></div>
+        <div><dt>Valve</dt><dd>A gate for flow. The LEGO engineers imagined a one-way valve so the mix goes out and cannot flow back.</dd></div>
+        <div><dt>Sprayer</dt><dd>A spray head that spreads water on top. The LEGO engineers imagined one on the side of the buoy.</dd></div>
+        <div><dt>Sodium peroxyhydrate</dt><dd>A powder that makes oxygen bubbles. The chemical the LEGO engineers chose for their algae-killer tank. We never use it in class; the demo just uses colored water.</dd></div>
       </dl>
     </details>
 
     <footer>
-      <p>Outdoor concept illustration, not a tested design. The LEGO equivalent is a dry classroom model. <a href="demo.html#kids-idea">The kids' big idea</a> · <a href="demo.html">Back to the explorer →</a></p>
+      <p>Outdoor concept illustration, not a tested design. The LEGO equivalent is a dry classroom model. <a href="demo.html#kids-idea">The LEGO engineers' big idea</a> · <a href="demo.html">Back to the explorer →</a></p>
     </footer>
     </main>
   <script>

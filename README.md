@@ -2,21 +2,21 @@
 
 [Open the interactive buoy explorer](https://bluestechs.github.io/buoy-robot/).
 
-The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the explorer; `parts.html` is the parts catalog. `solution.html` keeps existing links working by redirecting to the homepage's kids'-idea section. Everything is static files and client-side JavaScript — no server code, build step, accounts, or secrets. Pushing an update to `main` republishes the site.
+The site is hosted on GitHub Pages from the root of the `main` branch. `index.html` opens `demo.html`, the explorer; `parts.html` is the parts catalog. `solution.html` keeps existing links working by redirecting to the homepage's LEGO engineers' idea section. Everything is static files and client-side JavaScript — no server code, build step, accounts, or secrets. Pushing an update to `main` republishes the site.
 
 Put the Pi and breadboard on a dry LEGO base next to a shallow catch tray. Use two clear cups to show the tanks from the team's sketch. One holds plain water for display. The other holds water with a drop of food coloring and feeds the pump. The pump moves colored water into a clear catch cup, where everyone can see the result. Use a forecast button to stand in for the weather network and a light sensor to read a separate sample cup.
 
-## The kids' big idea
+## The LEGO engineers' big idea
 
-Read [Proposed by the kids](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. Some of the kids' ideas are not modeled yet; the explorer lists them as concepts: the farm levee, the lake boat releasing beneficial bacteria, the two tanks with a one-way valve, the side sprayer, and the battery-powered water filter. The prototype does not test or recommend treating a real waterway.
+Read [Proposed by the LEGO engineers](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. Some of the LEGO engineers' ideas are not modeled yet; the explorer lists them as concepts: the farm levee, the lake boat releasing beneficial bacteria, the two tanks with a one-way valve, the side sprayer, and the battery-powered water filter. The prototype does not test or recommend treating a real waterway.
 
 ## Explore the models
 
-The homepage targets ages 7–10 with three themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot with moving part demonstrations, then **Meet the parts**. Optional prototype budget material comes afterward. The earlier **Be the weather** prediction game, scenario presets, grade 5–7 discussion prompts, and simulator were removed.
+The homepage targets ages 7–10 with three themes in order: the LEGO engineers' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot with moving part demonstrations, then **Meet the parts**. Optional prototype budget material comes afterward. The earlier **Be the weather** prediction game, scenario presets, grade 5–7 discussion prompts, and simulator were removed.
 
 An outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration runs beside the models. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
-**Watch their idea work** is a short animated story of the kids' own device: the antenna hears a heavy-rain forecast, the small CPU opens the valve, the two tanks mix, the side sprayer spreads the mix, and the nearby algae fades. It plays once when it scrolls into view and has a **Replay the moment** button; reduced-motion settings show the final frame instead. It is a story sketch, not a tested device or a simulator, and nothing is stored.
+**Watch their idea work** is a short animated story of the LEGO engineers' own device: the antenna hears a heavy-rain forecast, the small CPU opens the valve, the two tanks mix, the side sprayer spreads the mix, and the nearby algae fades. It plays once when it scrolls into view and has a **Replay the moment** button; reduced-motion settings show the final frame instead. It is a story sketch, not a tested device or a simulator, and nothing is stored.
 
 The muted blue presentation uses a light theme regardless of the operating system setting. The prototype parts budget expands below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
@@ -94,7 +94,7 @@ US retail prices checked November 15, 2026. Estimates cover small parts and craf
 
 ## Teach the same logic with LEGO SPIKE Prime
 
-Use the team's Prime Hub, one Color Sensor, one Distance Sensor, and one Medium or Large Angular Motor. Reuse Technic bricks and an axle to hold the sensors and turn a paper flag or colored wheel. A Force Sensor is optional if the team wants a separate button. This is a dry classroom build. Each stand-in names the kids' part it represents: the Hub left button stands in for the antenna and transmitter, the Hub battery for the solar panels and battery, the Hub for the small CPU, the Distance Sensor for the treatment tank level, the motor for the sprayer, and the Color Sensor for the bottom water sensor. The Hub right button is a classroom safety addition, not part of the kids' plan. Use LEGO Word Blocks or SPIKE Python on the Prime Hub. `buoy.py` is the Raspberry Pi program and uses GPIO Zero for the Pi's hardware. [LEGO SPIKE Prime specifications](https://education.lego.com/en-us/product-resources/spike-prime/downloads/technical-specifications/)
+Use the team's Prime Hub, one Color Sensor, one Distance Sensor, and one Medium or Large Angular Motor. Reuse Technic bricks and an axle to hold the sensors and turn a paper flag or colored wheel. A Force Sensor is optional if the team wants a separate button. This is a dry classroom build. Each stand-in names the LEGO engineers' part it represents: the Hub left button stands in for the antenna and transmitter, the Hub battery for the solar panels and battery, the Hub for the small CPU, the Distance Sensor for the treatment tank level, the motor for the sprayer, and the Color Sensor for the bottom water sensor. The Hub right button is a classroom safety addition, not part of the LEGO engineers' plan. Use LEGO Word Blocks or SPIKE Python on the Prime Hub. `buoy.py` is the Raspberry Pi program and uses GPIO Zero for the Pi's hardware. [LEGO SPIKE Prime specifications](https://education.lego.com/en-us/product-resources/spike-prime/downloads/technical-specifications/)
 
 | Role | Raspberry Pi 3 tabletop build | LEGO SPIKE Prime exercise |
 | --- | --- | --- |
