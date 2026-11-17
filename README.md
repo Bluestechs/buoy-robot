@@ -10,15 +10,11 @@ Put the Pi and breadboard on a dry LEGO base next to a shallow catch tray. Use t
 
 Read [Proposed by the kids](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. Some of the kids' ideas are not modeled yet; the explorer lists them as concepts: the farm levee, the lake boat releasing beneficial bacteria, the two tanks with a one-way valve, the side sprayer, and the battery-powered water filter. The prototype does not test or recommend treating a real waterway.
 
-## Try the simulator
+## Explore the models
 
-The homepage targets ages 7–10 with four themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot, the simulator, then **Meet the parts**. Optional prototype budget material comes afterward. The earlier **Be the weather** prediction game was removed, along with the scenario presets and grade 5–7 discussion prompts.
+The homepage targets ages 7–10 with three themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot with moving part demonstrations, then **Meet the parts**. Optional prototype budget material comes afterward. The earlier **Be the weather** prediction game, scenario presets, grade 5–7 discussion prompts, and simulator were removed.
 
-The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Feedback shows the current forecast, sample, tank, and run state plus the pump output. Nothing about the visitor is stored.
-
-**Start over** restores clear weather, a clear sample, water present, and Run held. Set the four switches directly in **Simulator inputs**. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
-
-Above the simulator controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
+An outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration runs beside the models. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
 The muted blue presentation uses a light theme regardless of the operating system setting. The prototype parts budget expands below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
@@ -30,17 +26,17 @@ Select a part on either model to compare its job: **green** marks the part you p
 
 On the explorer, select a model component to open its details between the two devices. Both devices stay visible during the animation. On smaller screens, the outdoor model, details and LEGO model stack without overlap. Green marks the selected part and blue its counterpart, with labels that do not rely on color alone. Photos live in `images/` as ordinary static files. Photo credits link to Adafruit or AceCrew.
 
-Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Set the four **Simulator inputs** switches, then click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the simulation to time zero.
+Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Select a part on either model to open its details and **Watch it move**. The page has no simulation controls.
 
 For a classroom presentation:
 
 1. Choose **Presentation view** for a larger stage with the hardware details hidden. Use **Exit presentation** to return to the full page. This changes the page layout, not the browser's fullscreen setting.
-2. Select a part on either model to open its details; use **Watch it move** for a three-step close-up. The demonstration does not change the simulator.
-3. In **Simulator inputs**, check **Heavy rain**, keep the tank and Run held, and step: the pump starts at 1 second and stops at 3 seconds. Uncheck the tank or Run during a pulse: the pump stops early at the next step.
+2. Select a part on either model to open its details; use **Watch it move** for a three-step close-up. The demonstration runs beside the models.
+3. Compare a part across the two models: **green** marks the selected part and **blue** its match. Ask the audience what job both parts share.
 
-Change the four **Simulator inputs** switches independently before taking a step. Checkbox changes take effect at the next step. Reset restores the manual inputs to clear weather, clear sample, water present, and Run held. Select a part button to highlight it in the diagram and compare the Raspberry Pi and LEGO SPIKE Prime versions. All controls work with the keyboard, and the animation respects reduced-motion settings. Playback pauses when the browser tab is hidden.
+All controls work with the keyboard, and the animations respect reduced-motion settings. A part demonstration stops when the browser tab is hidden.
 
-The page simulates the controller in JavaScript and runs independently of the Python program and hardware. The diagram shows food-colored water moving into a catch cup; cloudiness alone is not evidence of algae.
+The page demonstrates the parts in JavaScript and runs independently of the Python program and hardware. The model output represents food-colored water moving into a catch cup; cloudiness alone is not evidence of algae.
 
 From the project folder, run the interactive development simulator in a terminal:
 

@@ -6,47 +6,6 @@
   <title>Proposed by the kids · explore their rain robot idea</title>
   <meta name="description" content="The kids' proposed algae-bloom solution, their not-yet-modeled concepts, two same-job robot models, and the parts that stand in for the idea.">
   <style>
-    #team-buoy {
-      --edge: color-mix(in srgb, var(--foreground) 55%, var(--background));
-      --rule: color-mix(in srgb, var(--foreground) 26%, var(--background));
-      --face: color-mix(in srgb, var(--foreground) 6%, var(--background));
-      --water: var(--viz-series-1, var(--blue));
-      --signal: var(--viz-series-2, var(--green));
-      --flow: var(--viz-series-3, var(--orange));
-      display: grid;
-      gap: 12px;
-      min-width: 0;
-      color: var(--foreground);
-    }
-    #team-buoy .buoy-controls { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: flex-end; }
-    #team-buoy .buoy-scene { display: block; width: 100%; max-width: 1100px; margin-inline: auto; }
-    #team-buoy .buoy-readings { display: flex; flex-wrap: wrap; gap: 8px 18px; color: var(--muted-foreground); }
-    #team-buoy .buoy-readings strong { font-weight: 500; color: var(--foreground); }
-    #team-buoy .buoy-part { --part-edge: var(--edge); --part-fill: var(--background); }
-    #team-buoy [data-picture].is-current {
-      --part-edge: var(--foreground);
-      --part-fill: color-mix(in srgb, var(--signal) 21%, var(--background));
-    }
-    #team-buoy .face { fill: var(--part-fill); stroke: var(--part-edge); }
-    #team-buoy .line { fill: none; stroke: var(--part-edge); }
-    #team-buoy .detail { fill: none; stroke: var(--rule); }
-    #team-buoy .shell { fill: var(--face); stroke: var(--edge); }
-    #team-buoy .tank-fill { fill: color-mix(in srgb, var(--water) 32%, var(--background)); }
-    #team-buoy .dyed-fill { fill: color-mix(in srgb, var(--flow) 45%, var(--background)); }
-    #team-buoy .route { fill: none; stroke: var(--rule); stroke-width: 3; stroke-dasharray: 5 5; }
-    #team-buoy .wet-route { fill: none; stroke: var(--edge); stroke-width: 4; }
-    #team-buoy .running .wet-route { stroke: var(--flow); stroke-width: 5; }
-    #team-buoy .stream, #team-buoy .cloud-drops, #team-buoy .sample-dots { visibility: hidden; }
-    #team-buoy .running .stream, #team-buoy .storm .cloud-drops, #team-buoy .cloudy .sample-dots { visibility: visible; }
-    #team-buoy .running .stream { animation: buoy-flow 700ms ease-in-out infinite alternate; animation-play-state: paused; }
-    #team-buoy.is-playing .running .stream { animation-play-state: running; }
-    #team-buoy .buoy-code { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
-    #team-buoy .buoy-inspect { display: grid; gap: 8px; min-width: 0; }
-    #team-buoy .buoy-parts { display: flex; flex-wrap: wrap; gap: 8px; border: 0; padding: 0; margin: 0; min-width: 0; }
-    .visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
-    #team-buoy .buoy-status { min-height: 1.5em; }
-    @keyframes buoy-flow { from { opacity: .4; } to { opacity: 1; } }
-    @media (prefers-reduced-motion: reduce) { #team-buoy .running .stream { animation: none; } }
     :root {
       color-scheme: light dark;
       --background: light-dark(#f7faf9, #141d1e);
@@ -70,7 +29,7 @@
     header p { max-width: 60ch; margin-top: 10px; color: var(--muted-foreground); }
     h2 { font-size: 1.5625rem; line-height: 1.2; }
     h3 { font-size: 1.25rem; margin: 24px 0 12px; }
-    .btn, .form-select {
+    .btn {
       min-height: 44px;
       border: 1px solid var(--border);
       border-radius: 8px;
@@ -89,52 +48,27 @@
     .btn:hover { filter: brightness(.94); }
     .btn:active { transform: translateY(1px); }
     .btn:disabled { opacity: .55; cursor: default; }
-    [data-play] { min-width: 100px; }
     [data-present] { min-width: 184px; }
     :focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
     .text-small { font-size: .875rem; }
-    #team-buoy { grid-template-columns: minmax(0, 1fr) minmax(0, 1.35fr); gap: 32px; }
-    .buoy-sim { grid-column: 1 / -1; display: grid; align-content: start; gap: 16px; min-width: 0; padding: 24px; border-radius: 16px; background: var(--control); }
-    #team-buoy .buoy-inspect { align-content: start; gap: 14px; }
-    .buoy-inspect { min-width: 0; }
-    .buoy-manual { margin: 0; min-width: 0; padding: .25rem .65rem .45rem; border: 1px solid var(--border); border-radius: 8px; }
-    .buoy-manual > div { display: flex; flex-wrap: wrap; gap: 4px 12px; }
-    .buoy-manual label { display: flex; min-height: 44px; align-items: center; gap: 4px; }
-    .buoy-manual input { accent-color: var(--primary); }
-    .buoy-comparison { display: grid; gap: 12px; margin: 0 0 16px; }
-    .buoy-comparison dt { font-weight: 650; }
-    .buoy-comparison dd { margin: 2px 0 0; color: var(--muted-foreground); }
-    #team-buoy .buoy-code { padding: 12px; border-radius: 8px; background: var(--control); font-size: .85rem; }
-    .buoy-dashboard { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; align-items: center; }
-    .pump-state { font-size: 1.5625rem; font-weight: 750; }
-    .pump-state[data-on="true"] { color: var(--primary); }
-    .timer { font-variant-numeric: tabular-nums; font-size: 1.25rem; }
-    #team-buoy .buoy-status { font-size: 1.125rem; }
-    #team-buoy .buoy-readings { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; font-size: 1rem; }
-    .buoy-readings span { display: grid; gap: 4px; }
-    #team-buoy .buoy-readings strong { font-size: 1.25rem; font-weight: 700; }
-    .diagram-labels { fill: var(--foreground); font-size: 12px; font-weight: 600; }
-    .diagram-leaders { fill: none; stroke: var(--edge); stroke-width: 1; }
+    #team-buoy {
+      --face: color-mix(in srgb, var(--foreground) 6%, var(--background));
+      display: grid;
+      gap: 12px;
+      min-width: 0;
+      color: var(--foreground);
+    }
     .science-note { color: var(--muted-foreground); font-size: 1rem; }
-    .presentation #team-buoy .buoy-inspect { display: none; }
     .presentation main { max-width: 1440px; }
-    .presentation .buoy-scene { max-height: 52vh; }
     .presentation header p { display: none; }
     ::selection { background: var(--primary); color: var(--on-primary); }
     :root { scrollbar-color: var(--border) var(--background); }
-    input { caret-color: var(--primary); }
     a { text-underline-offset: .2em; }
     [hidden] { display: none !important; }
     @media (prefers-reduced-motion: reduce) { .btn:active { transform: none; } }
     @media (max-width: 800px) {
-      #team-buoy { grid-template-columns: minmax(0, 1fr); }
       header { flex-direction: column; gap: 16px; }
-      .buoy-sim { padding: 16px; }
-      #team-buoy .buoy-readings { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-      .buoy-control, .form-select { max-width: 100%; }
-      .presentation .buoy-scene { max-height: none; }
     }
-
   </style>
 </head>
 <body>
@@ -171,325 +105,16 @@
     </section>
     <section id="team-buoy">
 
-      <section class="buoy-sim" aria-label="Simulator">
-      <div class="buoy-controls">
-        <button class="btn btn-primary" type="button" data-step>Next step</button>
-        <button class="btn" type="button" data-play aria-pressed="false">Play</button>
-        <button class="btn" type="button" data-reset>Reset</button>
-        <span class="text-small">1 step = 1 second</span>
-      </div>
-      <fieldset class="buoy-manual" data-manual>
-        <legend>Simulator inputs</legend>
-        <div>
-          <label><input type="checkbox" data-input="heavyRain"> Heavy rain</label>
-          <label><input type="checkbox" data-input="cloudy"> Cloudy sample</label>
-          <label><input type="checkbox" data-input="tankOK" checked> Tank has water</label>
-          <label><input type="checkbox" data-input="runHeld" checked> Run held</label>
-        </div>
-      </fieldset>
-      <div class="buoy-dashboard">
-        <strong class="pump-state" data-pump data-on="false">Pump off</strong>
-        <span class="timer">Time <strong data-time>0 s</strong> · <span data-countdown>No pulse active</span></span>
-      </div>
-      <p class="buoy-status" data-status role="status">Ready to check the inputs.</p>
-
-      <svg class="buoy-scene" viewBox="0 0 640 330" role="img" aria-labelledby="team-buoy-drawing-title team-buoy-drawing-desc">
-        <title id="team-buoy-drawing-title">Cutaway of the buoy and its water-only demo</title>
-        <desc id="team-buoy-drawing-desc">A weather cloud sends a signal to an antenna above a solar panel. A Pi and battery sit above two tanks, a water-only line with a float switch and pump runs to a catch tray, and an optical sensor hangs beneath the buoy.</desc>
-
-        <path d="M19 261q20-9 40 0t40 0 40 0m281 0q20-9 40 0t40 0" fill="none" stroke="var(--water)" stroke-opacity=".6" stroke-width="2"/>
-        <path d="M165 144h297l-22 101q-4 17-23 17H205q-20 0-24-17z" class="shell" stroke-width="2"/>
-        <path d="M166 155h294m-281 80h263M212 262v6m198-6v6" fill="none" stroke="var(--edge)" stroke-width="2"/>
-
-        <g class="buoy-part" data-picture="weather" stroke-width="2">
-          <path d="M46 93a19 19 0 0 1 19-18 23 23 0 0 1 44 5 14 14 0 0 1-2 28H64a18 18 0 0 1-18-15Z" class="face"/>
-          <path d="M68 116l-5 10m23-10l-5 10m23-10l-5 10" class="cloud-drops" fill="none" stroke="var(--water)" stroke-linecap="round" stroke-width="3"/>
-          <path d="M124 89h66m-7-5 7 5-7 5" class="line" stroke-dasharray="3 5"/>
-          <path d="M208 141V98m-12-9a16 16 0 0 1 24 0m-29-8a24 24 0 0 1 34 0" class="line" stroke-linecap="round"/>
-          <circle cx="208" cy="96" r="3" fill="var(--part-edge)"/>
-        </g>
-
-        <g class="buoy-part" data-picture="power" stroke-width="2">
-          <path d="M269 56h90l39 52H231z" class="face"/>
-          <path d="M257 73h115M243 91h142m-91-35-14 52m54-52 17 52" class="detail"/>
-          <path d="M273 109v33m83-33v33" class="line"/>
-          <rect x="361" y="164" width="54" height="27" rx="3" class="face"/>
-          <path d="M415 171h4v12h-4m-42-5h9m-4.5-4.5v9m23-4.5h8" class="line"/>
-        </g>
-
-        <path class="route" d="M208 141v37h36m69 2h48m-81 17v12h28m-40-12v40h43v30m-2-86h23v40h72"/>
-
-        <g class="buoy-part" data-picture="pi" stroke-width="2">
-          <rect x="240" y="160" width="75" height="38" rx="4" class="face"/>
-          <rect x="262" y="169" width="20" height="19" rx="2" class="line"/>
-          <path d="M249 168v12m48-11v4m0 5v4m0 5v4m-10-21h4m-4 6h4m-4 6h4" class="detail"/>
-          <circle cx="249" cy="188" r="2" fill="var(--signal)"/>
-        </g>
-
-        <g class="buoy-part" data-picture="run" stroke-width="2">
-          <path d="M229 182h11" class="detail"/>
-          <rect x="210" y="173" width="19" height="18" rx="3" class="face"/>
-          <circle cx="219.5" cy="182" r="4" class="line"/>
-        </g>
-
-        <g class="buoy-part" data-picture="tanks" stroke-width="2">
-          <rect x="199" y="205" width="66" height="42" rx="5" class="face"/>
-          <path d="M202 224h60v15q0 5-5 5h-50q-5 0-5-5z" class="tank-fill"/>
-          <rect x="281" y="205" width="78" height="42" rx="5" class="face"/>
-          <rect data-tank-water x="284" y="217" width="72" height="27" rx="3" class="dyed-fill"/>
-          <path d="M313 209v31" class="line"/>
-          <rect data-float x="306" y="215" width="14" height="6" rx="2" class="face"/>
-        </g>
-
-        <g class="buoy-part" data-picture="pump" stroke-width="2">
-          <path d="M348 238h34v-12h14m43 0h46q13 0 13 13v4" class="wet-route"/>
-          <path d="M354 234l5 4-5 4Z" class="face"/>
-          <circle cx="417" cy="226" r="19" class="face"/>
-          <circle cx="417" cy="226" r="11" class="line"/>
-          <path d="m417 219 5 9h-10z" class="line"/>
-          <path d="M491 242h14l2 7h-18z" class="face"/>
-          <path d="M496 254l-4 13m8-13v15m4-15l4 13" class="stream" fill="none" stroke="var(--flow)" stroke-width="3" stroke-linecap="round"/>
-          <path d="M460 274h97l-5 20h-87z" class="face"/>
-          <path class="stream" d="M469 282q16 5 33 0t44 0l-2 8h-73z" fill="var(--flow)" opacity=".65"/>
-        </g>
-
-        <g class="buoy-part" data-picture="optics" stroke-width="2">
-          <rect x="278" y="269" width="74" height="28" rx="5" class="face"/>
-          <path d="M292 277v12m46-12v12" class="line"/>
-          <path d="M297 283h36" fill="none" stroke="var(--water)" stroke-width="2"/>
-          <path d="M302 276h25v14h-25z" class="tank-fill"/>
-          <g class="sample-dots" fill="var(--foreground)">
-            <circle cx="307" cy="281" r="2"/><circle cx="321" cy="280" r="2"/><circle cx="316" cy="287" r="2"/>
-          </g>
-        </g>
-        <g class="diagram-leaders" aria-hidden="true">
-          <path d="M88 66V48M315 53V34M240 165l-55-19h-45M213 181h-55M200 213H130M352 283h28M438 224h29l14-31M510 295v10"/>
-        </g>
-        <g class="diagram-labels" aria-hidden="true">
-          <text x="38" y="39">Forecast</text>
-          <text x="237" y="23">Solar panel (outdoor idea)</text>
-          <text x="66" y="146">Controller</text>
-          <text x="80" y="185">Run button</text>
-          <text x="48" y="217">Water tanks</text>
-          <text x="380" y="287">Water sensor</text>
-          <text x="475" y="183">Pump</text>
-          <text x="473" y="322">Catch cup</text>
-        </g>
-      </svg>
-
-      <div class="buoy-readings text-small">
-        <span>Forecast <strong data-rain>Clear</strong></span>
-        <span>Sample <strong data-sample>Clear</strong></span>
-        <span>Tank <strong data-level>OK</strong></span>
-        <span>Run button <strong data-armed>Held</strong></span>
-      </div>
-      <p class="science-note">A colored-water demo: the pump moves food-colored water into a catch cup. Cloudiness can come from sediment or other particles; it is not proof of algae.</p>
-
-      </section>
-
-
-      <section class="buoy-inspect" aria-labelledby="buoy-part-heading">
-        <h2 id="buoy-part-heading">Explore a part</h2>
-        <fieldset class="buoy-parts">
-          <legend class="visually-hidden">Buoy parts</legend>
-          <button class="btn" type="button" data-part="weather" aria-pressed="false">Forecast</button>
-          <button class="btn" type="button" data-part="optics" aria-pressed="false">Optical sensor</button>
-          <button class="btn" type="button" data-part="tanks" aria-pressed="false">Tanks &amp; float</button>
-          <button class="btn" type="button" data-part="run" aria-pressed="false">Run button</button>
-          <button class="btn" type="button" data-part="power" aria-pressed="false">Solar &amp; battery</button>
-          <button class="btn" type="button" data-part="pi" aria-pressed="true">Raspberry Pi</button>
-          <button class="btn" type="button" data-part="pump" aria-pressed="false">Pump &amp; outlet</button>
-        </fieldset>
-        <div aria-live="polite">
-          <dl class="buoy-comparison">
-            <div>
-              <dt>Raspberry Pi 3</dt>
-              <dd data-pi></dd>
-            </div>
-            <div>
-              <dt>LEGO SPIKE Prime</dt>
-              <dd data-lego></dd>
-            </div>
-          </dl>
-          <h3>What the program does</h3>
-          <pre class="buoy-code"><code data-code></code></pre>
-        </div>
-      </section>
-      <noscript>Enable JavaScript to run the simulator and compare the parts.</noscript>
+      <noscript>Enable JavaScript to explore the models and compare the parts.</noscript>
 
       <script>
         (() => {
-          const root = document.getElementById("team-buoy");
-          const partDetails = {
-            weather: {
-              pi: "A push button on GPIO27 stands in for a heavy-rain forecast.",
-              lego: "Hold the Prime Hub’s left button to send the same pretend forecast.",
-              code: "heavy_rain = forecast_button_is_held()"
-            },
-            optics: {
-              pi: "The MCP3008 reads the light that reaches a photoresistor through the water sample. Less light can indicate cloudiness, but it cannot tell us whether algae caused it.",
-              lego: "Use a Color Sensor on port A. Swap a light card for a dark card at the same distance and compare reflected light. Keep the sensor dry.",
-              code: "light = read_light()\ncloudy = light < calibrated_cutoff"
-            },
-            tanks: {
-              pi: "The float switch on GPIO22 opens as the water level drops. The second cup shows the plain-water tank from the drawing.",
-              lego: "Point a Distance Sensor on port B at a dry sliding marker. Move it farther away to represent a low tank. Treat a missing reading as low.",
-              code: "tank_ok = level_signal_is_valid_and_high()\nif not tank_ok:\n    block or stop the output"
-            },
-            run: {
-              pi: "A push button on GPIO23 permits a pulse only while someone holds it.",
-              lego: "Hold the Prime Hub’s right button, or use a Force Sensor on port D if you want a separate button.",
-              code: "run_held = operator_button_is_held()\nif not run_held:\n    block or stop the output"
-            },
-            power: {
-              pi: "The tabletop Pi and pump each use a plug-in supply. The solar panel and battery belong to the outdoor concept.",
-              lego: "The Prime Hub’s rechargeable battery powers the hub and its connected sensors and motor. A LEGO solar panel on the model can be decorative.",
-              code: "tabletop power:\n    Pi supply -> Raspberry Pi\n    motor supply -> pump driver\n    hub battery -> SPIKE hub and devices"
-            },
-            pi: {
-              pi: "The Raspberry Pi runs buoy.py. It checks both triggers and limits the pump to one pulse per event.",
-              lego: "The Prime Hub can use the same decision rules in SPIKE Word Blocks or SPIKE Python, using its own sensor and motor commands.",
-              code: "event = heavy_rain OR cloudy\nif output_running:\n    stop at 2 seconds, on low water, or on release\nelse if neither trigger is active:\n    mark the next event as unused\nelse if tank_ok AND run_held AND event_unused:\n    start output and mark event as used"
-            },
-            pump: {
-              pi: "GPIO17 signals a MOSFET driver to switch the separately powered pump. The pump moves food-colored water into a catch cup.",
-              lego: "Use an Angular Motor on port C to turn a flag, wheel, or dry model pump. A spinning wheel displays the command the Pi sends to the real pump.",
-              code: "if controller_requests_output:\n    switch on the pump driver or start the motor\nelse:\n    switch off the pump driver or stop the motor"
-            }
-          };
-
-          const scene = root.querySelector(".buoy-scene");
-          const status = root.querySelector("[data-status]");
-          const piDetail = root.querySelector("[data-pi]");
-          const legoDetail = root.querySelector("[data-lego]");
-          const manual = root.querySelector("[data-manual]");
-          const manualInputs = Array.from(manual.querySelectorAll("input"));
-          const code = root.querySelector("[data-code]");
-          const parts = Array.from(root.querySelectorAll("[data-part]"));
-          const playButton = root.querySelector("[data-play]");
-          let seconds = 0;
-          let stopAt = null;
-          let eventUsed = false;
-          let playback = null;
-
-          function pause() {
-            clearInterval(playback);
-            playback = null;
-            playButton.textContent = "Play";
-            playButton.setAttribute("aria-pressed", "false");
-            root.classList.remove("is-playing");
-          }
-
-          function showPart(part) {
-            for (const button of parts) {
-              button.setAttribute("aria-pressed", String(button.dataset.part === part));
-            }
-            for (const picture of root.querySelectorAll("[data-picture]")) {
-              picture.classList.toggle("is-current", picture.dataset.picture === part);
-            }
-            const info = partDetails[part];
-            piDetail.textContent = info.pi;
-            legoDetail.textContent = info.lego;
-            code.textContent = info.code;
-          }
-
-          function readScenario() {
-            return Object.fromEntries(manualInputs.map(input => [input.dataset.input, input.checked]));
-          }
-
-          function step({ heavyRain, cloudy, tankOK, runHeld }) {
-            const event = heavyRain || cloudy;
-            if (stopAt !== null) {
-              if (!tankOK || !runHeld) {
-                stopAt = null;
-                return tankOK ? "Stopped: run button released" : "Stopped: tank low";
-              }
-              if (seconds >= stopAt) {
-                stopAt = null;
-                return "Pulse complete";
-              }
-              return "Moving demo water";
-            }
-            if (!event) {
-              eventUsed = false;
-              return "Watching: no storm or cloudy sample";
-            }
-            if (!tankOK) return "Blocked: tank low";
-            if (!runHeld) return "Blocked: hold the run button";
-            if (eventUsed) return "Waiting for both triggers to clear";
-            eventUsed = true;
-            stopAt = seconds + 2;
-            return "Pulse started";
-          }
-
-          function paint(readings, message) {
-            const { heavyRain, cloudy, tankOK, runHeld } = readings;
-            const pumping = stopAt !== null;
-            scene.classList.toggle("storm", heavyRain);
-            scene.classList.toggle("cloudy", cloudy);
-            scene.classList.toggle("running", pumping);
-            root.querySelector("[data-rain]").textContent = heavyRain ? "Heavy rain" : "Clear";
-            root.querySelector("[data-sample]").textContent = cloudy ? "Cloudy" : "Clear";
-            root.querySelector("[data-level]").textContent = tankOK ? "OK" : "Low";
-            root.querySelector("[data-armed]").textContent = runHeld ? "Held" : "Released";
-            const float = root.querySelector("[data-float]");
-            const water = root.querySelector("[data-tank-water]");
-            float.setAttribute("y", tankOK ? "215" : "234");
-            water.setAttribute("y", tankOK ? "217" : "236");
-            water.setAttribute("height", tankOK ? "27" : "8");
-            root.querySelector("[data-pump]").textContent = pumping ? "Pump on · moving water" : "Pump off";
-            root.querySelector("[data-pump]").dataset.on = String(pumping);
-            root.querySelector("[data-time]").textContent = seconds + " s";
-            root.querySelector("[data-countdown]").textContent = pumping ? (stopAt - seconds) + " s left in pulse" : "No pulse active";
-            status.textContent = seconds + " s · " + message + ". Pump " + (pumping ? "on." : "off.");
-          }
-
-          function loadScenario() {
-            pause();
-            seconds = 0;
-            stopAt = null;
-            eventUsed = false;
-            paint(readScenario(), "Ready to check the inputs");
-          }
-
-          function advance() {
-            seconds += 1;
-            const readings = readScenario();
-            paint(readings, step(readings));
-          }
-
-          root.querySelector("[data-step]").addEventListener("click", () => {
-            pause();
-            advance();
-          });
-          playButton.addEventListener("click", () => {
-            if (playback !== null) {
-              pause();
-              return;
-            }
-            playback = setInterval(advance, 1000);
-            playButton.textContent = "Pause";
-            playButton.setAttribute("aria-pressed", "true");
-            root.classList.add("is-playing");
-          });
-          root.querySelector("[data-reset]").addEventListener("click", () => {
-            for (const input of manualInputs) input.checked = input.defaultChecked;
-            loadScenario();
-          });
           const presentation = document.querySelector("[data-present]");
           presentation.addEventListener("click", () => {
             const active = document.body.classList.toggle("presentation");
             presentation.setAttribute("aria-pressed", String(active));
             presentation.textContent = active ? "Exit presentation" : "Presentation view";
           });
-          document.addEventListener("visibilitychange", () => {
-            if (document.hidden) pause();
-          });
-          for (const button of parts) {
-            button.addEventListener("click", () => showPart(button.dataset.part));
-          }
-          showPart("pi");
-          loadScenario();
         })();
       </script>
     </section>
@@ -529,7 +154,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
 <style>
 :root { color-scheme:light; --background:#e4eef4; --foreground:#18374c; --muted-foreground:#466479; --control:#d5e5ee; --border:#91adbd; --primary:#185f83; --on-primary:#fff; --blue:#287ba4; --green:#267b6b; --orange:#b6572b; }
 .explorer {grid-column:1/-1}.model-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.model-pair figure{margin:0;min-width:0}.model-pair figcaption{font-size:1.3rem;font-weight:700;margin:12px 0}.model-pair svg{width:100%;display:block;background:#d5e7f0;border-radius:16px}.model-pair svg text{font-family:system-ui;fill:#173b50;font-size:13px}.hotspot{cursor:pointer}.hotspot:hover,.hotspot:focus-visible,.hotspot.selected{filter:drop-shadow(0 0 5px #1c92b1)}.hotspot:focus-visible{outline:2px solid #185f83}.hotspot .moving{transform-box:fill-box;transform-origin:center}.hotspot.demo .moving{animation:part-move .7s alternate 6}.model-pair.pumping [data-hotspot=pump] .moving{animation:part-spin 1s linear infinite}.model-pair.paused [data-hotspot=pump] .moving{animation-play-state:paused}@keyframes part-move{to{transform:translateY(-9px);opacity:.6}}@keyframes part-spin{to{transform:rotate(360deg)}}
-#part-popover{position:fixed;inset:auto 24px 24px auto;width:min(440px,calc(100vw - 32px));max-height:75vh;overflow:auto;z-index:20;background:#f1f6f9;color:#18374c;border:1px solid #91adbd;border-radius:16px;padding:24px;box-shadow:0 12px 35px #173b5033}#part-popover h2{margin:0 44px 12px 0}#part-popover p{margin:12px 0}#part-popover pre{white-space:pre-wrap;background:#dce9f0;padding:16px;border-radius:8px;font-size:.9rem}#part-popover .close{position:absolute;right:12px;top:12px}.block-stack{padding:10px}.code-block{background:#226b98;color:white;padding:12px 16px;margin-top:3px;border-radius:6px;position:relative}.code-block:before{content:'';display:block;width:25px;height:5px;background:inherit;position:absolute;top:-4px;left:18px}.code-block:nth-child(2n){background:#755396}.budget-table{border-collapse:collapse;width:100%}.budget-table td,.budget-table th{text-align:left;padding:12px;border-bottom:1px solid var(--border)}details{grid-column:1/-1;margin-top:12px}summary{cursor:pointer;min-height:44px;padding:12px;font-weight:700}.buoy-sim>.buoy-scene{display:none}.presentation #team-buoy .buoy-inspect{display:none}.buoy-inspect{display:none!important}@media(max-width:800px){.model-pair{grid-template-columns:1fr}#part-popover{inset:auto 8px 8px;width:calc(100vw - 16px);max-height:65vh}}@media(prefers-reduced-motion:reduce){.hotspot .moving{animation:none!important}}
+#part-popover{position:fixed;inset:auto 24px 24px auto;width:min(440px,calc(100vw - 32px));max-height:75vh;overflow:auto;z-index:20;background:#f1f6f9;color:#18374c;border:1px solid #91adbd;border-radius:16px;padding:24px;box-shadow:0 12px 35px #173b5033}#part-popover h2{margin:0 44px 12px 0}#part-popover p{margin:12px 0}#part-popover pre{white-space:pre-wrap;background:#dce9f0;padding:16px;border-radius:8px;font-size:.9rem}#part-popover .close{position:absolute;right:12px;top:12px}.block-stack{padding:10px}.code-block{background:#226b98;color:white;padding:12px 16px;margin-top:3px;border-radius:6px;position:relative}.code-block:before{content:'';display:block;width:25px;height:5px;background:inherit;position:absolute;top:-4px;left:18px}.code-block:nth-child(2n){background:#755396}.budget-table{border-collapse:collapse;width:100%}.budget-table td,.budget-table th{text-align:left;padding:12px;border-bottom:1px solid var(--border)}details{grid-column:1/-1;margin-top:12px}summary{cursor:pointer;min-height:44px;padding:12px;font-weight:700}@media(max-width:800px){.model-pair{grid-template-columns:1fr}#part-popover{inset:auto 8px 8px;width:calc(100vw - 16px);max-height:65vh}}@media(prefers-reduced-motion:reduce){.hotspot .moving{animation:none!important}}
 </style>
 <script>
 (() => {
@@ -666,7 +291,6 @@ h1,h2,h3 { letter-spacing:-.025em; }
  pop.querySelector('[data-part-description]').after(animateButton,animationStatus);
  function open(part,button,kind){
    cancel();selected=part;origin=button;const guide=partGuide[part];
-   root.querySelector(`[data-part="${part}"]`).click();
    root.querySelectorAll('[data-hotspot]').forEach(e=>{e.classList.toggle('selected',e.dataset.hotspot===part);});
    section.querySelectorAll('[data-part-card]').forEach(e=>{e.setAttribute('aria-pressed',String(e.dataset.partCard===part));});
    pop.querySelector('h2').textContent=guide.label;
@@ -684,7 +308,6 @@ h1,h2,h3 { letter-spacing:-.025em; }
  const glossary=document.createElement('details');glossary.className='part-glossary';const glossarySummary=document.createElement('summary');glossarySummary.textContent='Word helper: what do these letters mean?';glossary.append(glossarySummary,explainWords(Object.keys(wordBook)));invite.after(glossary);
  root.querySelectorAll('[data-hotspot]').forEach(e=>{e.addEventListener('click',()=>open(e.dataset.hotspot,e,e.closest('[data-model]').dataset.model==='lego'?'lego':'python'));const preview=active=>{root.querySelectorAll(`[data-hotspot="${e.dataset.hotspot}"]`).forEach(match=>{match.classList.toggle('preview',active);});};e.addEventListener('pointerenter',()=>preview(true));e.addEventListener('pointerleave',()=>preview(false));e.addEventListener('focus',()=>preview(true));e.addEventListener('blur',()=>preview(false));e.addEventListener('keydown',event=>{if(['Enter',' '].includes(event.key)){event.preventDefault();e.dispatchEvent(new MouseEvent('click',{bubbles:true}));}});});
  pop.querySelectorAll('[data-code-tab]').forEach(b=>{b.onclick=()=>tab(b.dataset.codeTab);});function close(){cancel();pop.hidden=true;clearMapping();modelPair.classList.remove('has-details');document.body.classList.remove('part-selected');origin?.focus();}pop.querySelector('[data-close-part]').onclick=close;document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!pop.hidden)close();});
- const oldScene=root.querySelector('.buoy-scene');const sync=()=>{const pair=section.querySelector('.model-pair');pair.classList.toggle('pumping',oldScene.classList.contains('running'));pair.classList.toggle('paused',!root.classList.contains('is-playing'));pair.classList.toggle('storm',oldScene.classList.contains('storm'));pair.classList.toggle('cloudy',oldScene.classList.contains('cloudy'));pair.classList.toggle('low',root.querySelector('[data-level]').textContent==='Low');pair.classList.toggle('released',root.querySelector('[data-armed]').textContent==='Released');};new MutationObserver(sync).observe(root.querySelector('.buoy-sim'),{subtree:true,attributes:true,childList:true,characterData:true});new MutationObserver(sync).observe(root,{attributes:true,attributeFilter:['class']});sync();
  const demonstrationSteps={
    weather:[['Rain is expected','Outdoor: a forecast message arrives. LEGO: press the Hub left button.'],['Send the message','The signal travels toward the computer. It still has to check water and Run permission.'],['Message received','A forecast can request a pulse. It does not skip the safety checks.']],
    power:[['Find the energy source','Outdoor idea: sunlight. LEGO model: the Hub battery.'],['Electricity flows','Follow the orange arrows from the source toward the parts.'],['Parts have power','Power lets the parts work. The computer still decides whether to run the pump.']],
@@ -700,7 +323,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
    figure.append(view);
  }
  const stopAnimation=document.createElement('button');stopAnimation.type='button';stopAnimation.className='btn';stopAnimation.dataset.stopAnimation='';stopAnimation.textContent='Stop animation';stopAnimation.hidden=true;
- animateButton.after(stopAnimation);stopAnimation.onclick=()=>{cancel();animationStatus.textContent='Demonstration stopped. The simulation has not changed.';animateButton.focus();};
+ animateButton.after(stopAnimation);stopAnimation.onclick=()=>{cancel();animationStatus.textContent='Demonstration stopped.';animateButton.focus();};
  function showDemoPhase(part,phase){
    modelPair.dataset.demoPhase=String(phase);
    root.querySelectorAll(`[data-hotspot="${part}"]`).forEach(e=>{e.classList.add('demo');e.dataset.phase=String(phase);});
@@ -710,7 +333,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
      view.querySelector('.action-name').textContent=(figure.dataset.model==='lego'?kitNames[part]:displayNames[part])+' · close-up';
      view.querySelector('.action-caption').textContent=title;
    }
-   animationStatus.textContent=`Demonstration ${phase+1} of 3: ${title}. ${explanation} Simulation unchanged.`;
+   animationStatus.textContent=`Demonstration ${phase+1} of 3: ${title}. ${explanation}`;
  }
  function startDemonstration(){
    cancel();const part=selected;
@@ -720,7 +343,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
    const advanceDemo=()=>{
      phase+=1;
      if(phase<3){showDemoPhase(part,phase);timer=setTimeout(advanceDemo,2600);}
-     else{timer=null;root.querySelectorAll('.demo').forEach(e=>{e.classList.remove('demo');delete e.dataset.phase;});stopAnimation.hidden=true;animateButton.textContent='Replay animation';animationStatus.textContent='Demonstration complete. '+demonstrationSteps[part][2][1]+' Simulation unchanged.';}
+     else{timer=null;root.querySelectorAll('.demo').forEach(e=>{e.classList.remove('demo');delete e.dataset.phase;});stopAnimation.hidden=true;animateButton.textContent='Replay animation';animationStatus.textContent='Demonstration complete. '+demonstrationSteps[part][2][1];}
    };
    timer=setTimeout(advanceDemo,2600);
  }
@@ -731,7 +354,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
 })();
 </script>
 <style>
-#team-buoy .buoy-sim>.buoy-scene{display:none}.hotspot.preview{filter:drop-shadow(0 0 5px #1c92b1)}.model-pair svg>ellipse{pointer-events:none}
+#team-buoy .hotspot.preview{filter:drop-shadow(0 0 5px #1c92b1)}.model-pair svg>ellipse{pointer-events:none}
 
 .word-definitions {margin:12px 0;display:grid;gap:16px}
 .word-definitions dt {font-weight:700;margin-bottom:4px}
