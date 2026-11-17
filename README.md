@@ -16,7 +16,7 @@ The homepage targets ages 7–10 with four themes in order: the kids' original i
 
 The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Feedback shows the current forecast, sample, tank, and run state plus the pump output. Nothing about the visitor is stored.
 
-**Start over** restores clear weather, a clear sample, water present, and Run held. A ready-made scene menu offers six scenarios. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
+**Start over** restores clear weather, a clear sample, water present, and Run held. The scene menu offers five ready-made scenarios plus a manual-input mode. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
 
 Above the simulator controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
