@@ -16,6 +16,8 @@ The homepage targets ages 7–10 with three themes in order: the kids' original 
 
 An outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration runs beside the models. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
+**Watch their idea work** is a short animated story of the kids' own device: the antenna hears a heavy-rain forecast, the small CPU opens the valve, the two tanks mix, the side sprayer spreads the mix, and the nearby algae fades. It plays once when it scrolls into view and has a **Replay the moment** button; reduced-motion settings show the final frame instead. It is a story sketch, not a tested device or a simulator, and nothing is stored.
+
 The muted blue presentation uses a light theme regardless of the operating system setting. The prototype parts budget expands below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
 Each animation now has three named steps and enlarged close-ups under both device views. Small movements are exaggerated so the class can follow the action. Use **Stop animation** to stop early or **Replay animation** after it finishes. The final caption stays visible for discussion. Reduced-motion settings keep the explanations and static state changes. LEGO parts use distinct kit shapes and names: Large Hub, Color Sensor on A, Distance Sensor on B, and Medium Angular Motor on C. The model spaces parts out for clarity; it is not an assembly or wiring guide.
