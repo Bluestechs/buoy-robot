@@ -8,17 +8,17 @@ Put the Pi and breadboard on a dry LEGO base next to a shallow catch tray. Use t
 
 ## The kids' big idea
 
-Read [Proposed by the kids](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. The prototype does not test or recommend treating a real waterway.
+Read [Proposed by the kids](demo.html#kids-idea) for their original problem statement and proposed solutions. They did the work. This site visualizes their idea further. Some of the kids' ideas are not modeled yet; the explorer lists them as concepts: the farm levee, the lake boat releasing beneficial bacteria, the two tanks with a one-way valve, the side sprayer, and the battery-powered water filter. The prototype does not test or recommend treating a real waterway.
 
 ## Try the simulator
 
-The homepage targets ages 7–10 with four themes in order: the kids' original idea, same-job comparisons between two kinds of robot, **Be the weather** play, then **Meet the parts**. Optional discussion and budget material comes afterward.
+The homepage targets ages 7–10 with four themes in order: the kids' original idea and their not-yet-modeled concepts, same-job comparisons between two kinds of robot, the simulator, then **Meet the parts**. Optional discussion and budget material comes afterward. The earlier **Be the weather** prediction game was removed.
 
-During play, a student picks one of three missions, guesses whether the pump will run, and takes a step to test the prediction. The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Visible feedback shows the current weather and a moving LEGO flag. The mission checks the real controller state. Answers and scores are not stored.
+The four switches control rain, a cloudy water sample, the water tank, and hold-to-run permission. Feedback shows the current forecast, sample, tank, and run state plus the pump output. Nothing about the visitor is stored.
 
-Start over resets the mission to rain, water present, and Run held. A ready-made scene selector is available inside **Try a ready-made scene**. Manual switches remain available. **Play** advances one simulated second at a time after the first prediction; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
+**Start over** restores clear weather, a clear sample, water present, and Run held. A ready-made scene menu offers six scenarios. **Play** advances one simulated second at a time; **Next step** pauses and advances once. Each pulse lasts two simulated seconds.
 
-Below the controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short child-first explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology remain available inside **For mentors**. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
+Above the simulator controls, an outdoor buoy cutaway sits beside its dry LEGO SPIKE equivalent. Select a component on either model to open a short explanation and **Watch it move**. The demonstration does not change the simulator. Python excerpts, SPIKE-style blocks, costs and terminology appear in the part dialog. These illustrate the logic, not a complete executable program. Close the part window with its close button or Escape.
 
 The muted blue presentation uses a light theme regardless of the operating system setting. Discussion prompts and the prototype parts budget expand below the models. The outdoor device is an imagined design, not a tested product. Prototype costs exclude outdoor solar power and weatherproofing.
 
@@ -26,11 +26,11 @@ Each animation now has three named steps and enlarged close-ups under both devic
 
 Select a part on either model to compare its job: **green** marks the part you picked and **blue** marks its match in the other model. A dotted line connects the pair around the diagrams, clear of the explanation text. The “Same job” sentence explains the shared idea, such as the hold-to-run button and the Hub's right button both giving permission to run. They share a role, not necessarily the same hardware or measurement method.
 
-**Meet the parts** is an invitation strip on the explorer linking to the [parts catalog](parts.html). Each catalog entry starts with a photo, a short job description, and a LEGO equivalent. Open its mentor section for code, costs, terminology and source credits. The **Word helper** collects all definitions.
+**Meet the parts** is an invitation strip on the explorer linking to the [parts catalog](parts.html). Each catalog entry starts with a photo, a short job description, and a LEGO equivalent. Each entry also lists code, costs, terminology and source credits. The **Word helper** collects all definitions.
 
 On the explorer, select a model component to open its details between the two devices. Both devices stay visible during the animation. On smaller screens, the outdoor model, details and LEGO model stack without overlap. Green marks the selected part and blue its counterpart, with labels that do not rely on color alone. Photos live in `images/` as ordinary static files. Photo credits link to Adafruit or AceCrew.
 
-Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Choose a mission, make a prediction and click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the mission to time zero. Changing scenarios also stops playback and resets the controller.
+Open [demo.html](demo.html) through a simple static server or the GitHub Pages site. No installation or backend is needed. For a local preview, run `python3 -m http.server 8765` in this directory, then open `http://127.0.0.1:8765/`. Choose a scenario or use **Set inputs manually**, then click **Next step**. **Play** advances automatically once per second; **Pause** freezes the simulation for discussion. **Start over** returns the scenario to time zero. Changing scenarios also stops playback and resets the controller.
 
 For a classroom presentation:
 
@@ -97,7 +97,7 @@ US retail prices checked November 15, 2026. Estimates cover small parts and craf
 
 ## Teach the same logic with LEGO SPIKE Prime
 
-Use the team's Prime Hub, one Color Sensor, one Distance Sensor, and one Medium or Large Angular Motor. Reuse Technic bricks and an axle to hold the sensors and turn a paper flag or colored wheel. A Force Sensor is optional if the team wants a separate button. This is a dry classroom build. Use LEGO Word Blocks or SPIKE Python on the Prime Hub. `buoy.py` is the Raspberry Pi program and uses GPIO Zero for the Pi's hardware. [LEGO SPIKE Prime specifications](https://education.lego.com/en-us/product-resources/spike-prime/downloads/technical-specifications/)
+Use the team's Prime Hub, one Color Sensor, one Distance Sensor, and one Medium or Large Angular Motor. Reuse Technic bricks and an axle to hold the sensors and turn a paper flag or colored wheel. A Force Sensor is optional if the team wants a separate button. This is a dry classroom build. Each stand-in names the kids' part it represents: the Hub left button stands in for the antenna and transmitter, the Hub battery for the solar panels and battery, the Hub for the small CPU, the Distance Sensor for the treatment tank level, the motor for the sprayer, and the Color Sensor for the bottom water sensor. The Hub right button is a classroom safety addition, not part of the kids' plan. Use LEGO Word Blocks or SPIKE Python on the Prime Hub. `buoy.py` is the Raspberry Pi program and uses GPIO Zero for the Pi's hardware. [LEGO SPIKE Prime specifications](https://education.lego.com/en-us/product-resources/spike-prime/downloads/technical-specifications/)
 
 | Role | Raspberry Pi 3 tabletop build | LEGO SPIKE Prime exercise |
 | --- | --- | --- |

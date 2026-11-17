@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Proposed by the kids · explore their rain robot idea</title>
-  <meta name="description" content="The kids' proposed algae-bloom solution, two same-job robot models, a weather playground, and the parts that make the idea work.">
+  <meta name="description" content="The kids' proposed algae-bloom solution, their not-yet-modeled concepts, two same-job robot models, and the parts that stand in for the idea.">
   <style>
     #team-buoy {
       --edge: color-mix(in srgb, var(--foreground) 55%, var(--background));
@@ -162,6 +162,18 @@
         <h2>The Solutions</h2>
         <p>The solution we decided on is for a levee to surround the edge of a farm to catch and absorb the water runoff with fertilizer. We also have a system where every year a boat would drive around a lake or an inlet and release beneficial bacteria, which will eat the phosphorus and nitrogen fertilizer and essentially starve the algae. But when an especially hard rain comes, there would be a buoy. In the buoy, there would be two tanks: one of them holds a sodium peroxyhydrate solution that, when mixed with water, can kill algae; the other is filled with water and a one-way valve. The water tank would lead to a sprayer on the side that would spray the water and spread the sodium peroxyhydrate on top. On the top of the buoy, there would be solar panels that would charge the battery inside the buoy. The battery would then power a transmitter, small CPU, a water filter, and an antenna. The antenna would connect to the weather network in the nearby area, and when the weather predicted heavy rain, it would tell the CPU to open the valve and mix the water, or when the water sensor on the bottom picked up an overabundance of algae in the water. When all of these are combined, we hope that the algae will die and the lake will return to its pre-algae self.</p>
       </article>
+      <div class="kid-concepts">
+        <h2>In their plan, but not in a model yet</h2>
+        <p>The kids wrote more ideas than the robots show. These parts of their plan are still concepts — no model or prototype builds them yet.</p>
+        <ul>
+          <li><strong>A levee around the farm.</strong> "…a levee to surround the edge of a farm to catch and absorb the water runoff with fertilizer." No model yet.</li>
+          <li><strong>A lake boat with beneficial bacteria.</strong> "…every year a boat would drive around a lake or an inlet and release beneficial bacteria, which will eat the phosphorus and nitrogen fertilizer and essentially starve the algae." No model yet.</li>
+          <li><strong>Two tanks and a one-way valve.</strong> "…one of them holds a sodium peroxyhydrate solution that, when mixed with water, can kill algae; the other is filled with water and a one-way valve." When rain is forecast, "it would tell the CPU to open the valve and mix the water." The models show only the tank level.</li>
+          <li><strong>A sprayer on the side.</strong> "The water tank would lead to a sprayer on the side that would spray the water and spread the sodium peroxyhydrate on top." The model shows a pump moving water instead.</li>
+          <li><strong>A water filter.</strong> "The battery would then power a transmitter, small CPU, a water filter, and an antenna." No model or part yet.</li>
+        </ul>
+        <p class="concept-note">Quoted from the kids' proposal above, in their own words.</p>
+      </div>
     </section>
     <section id="team-buoy">
 
@@ -276,7 +288,7 @@
           <text x="66" y="146">Controller</text>
           <text x="80" y="185">Run button</text>
           <text x="48" y="217">Water tanks</text>
-          <text x="380" y="287">Light sensor</text>
+          <text x="380" y="287">Water sensor</text>
           <text x="475" y="183">Pump</text>
           <text x="473" y="322">Catch cup</text>
         </g>
@@ -576,65 +588,23 @@
     </section>
   </main>
 <style>
-:root { --kid-blue:#155e87; --kid-green:#126e4e; --kid-sun:#fff0a8; }
 body { background:#eaf3f9; }
 main { max-width:1400px; }
 header { align-items:center; margin-bottom:24px; }
 header h1 { font-size:clamp(2.2rem,5vw,4rem); }
 h1,h2,h3 { letter-spacing:-.025em; }
-.play-lab + * { margin-top:0; }
 #kids-idea { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.35fr); gap:20px; margin-bottom:48px; scroll-margin-top:16px; }
 .idea-credit { grid-column:1 / -1; max-width:70ch; color:var(--muted-foreground); font-size:1.125rem; }
 #kids-idea .kid-work { background:#fffdf4; border:2px solid #b8c9c9; border-radius:18px; padding:clamp(20px,3vw,32px); }
 #kids-idea .kid-work h2 { margin:0 0 18px; font-size:1.75rem; }
 #kids-idea .kid-work p { margin:0; font-size:1.0625rem; line-height:1.65; }
-.theme-explorer { scroll-margin-top:16px; }
-.parts-theme { max-width:1100px; margin:36px auto 0; }
-.parts-theme > p { color:var(--muted-foreground); }
-.parts-theme > h3 { margin-top:24px; }
+.kid-concepts { grid-column:1 / -1; display:grid; gap:12px; background:#fffdf4; border:2px dashed #b8c9c9; border-radius:18px; padding:clamp(20px,3vw,32px); }
+.kid-concepts h2 { margin:0; font-size:1.75rem; }
+.kid-concepts > p { margin:0; color:var(--muted-foreground); }
+.kid-concepts ul { margin:0; padding-left:1.2em; display:grid; gap:10px; }
+.kid-concepts li { font-size:1.0625rem; line-height:1.65; }
+.kid-concepts .concept-note { color:var(--muted-foreground); font-size:.9375rem; }
 #team-buoy { grid-template-columns:minmax(0,1fr); gap:28px; }
-.play-lab { display:grid; grid-template-columns:minmax(230px,1.2fr) minmax(160px,.65fr) minmax(300px,1fr); gap:20px; align-items:center; padding:24px; background:#fffdf4; border:2px solid #b0c6cf; border-radius:22px; }
-.play-intro { grid-column:1 / -1; display:flex; flex-wrap:wrap; justify-content:space-between; align-items:end; gap:8px 24px; }
-.play-intro h2 { font-size:1.5rem; }
-.eyebrow { margin:0; color:#466479; font-size:.9375rem; font-weight:700; }
-.mission-label { display:block; font-weight:700; margin-bottom:6px; }
-.mission-board [data-mission] { width:100%; font-size:1.0625rem; background:#fff; }
-.mission-question { font-size:1.125rem; font-weight:650; line-height:1.4; margin-block:12px; }
-.prediction-buttons { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
-.prediction-buttons .btn { min-height:54px; padding:10px 12px; font-weight:700; border-radius:12px; }
-.prediction-buttons [data-predict="run"] { background:#fff0a8; border-color:#745f09; }
-.prediction-buttons [data-predict="stay"] { background:#dfeffc; border-color:#326385; }
-.prediction-buttons .is-guessed { outline:3px solid #2a6487; outline-offset:2px; }
-.prediction-buttons .is-correct { background:#bceccd; border-color:#126e4e; }
-.prediction-buttons .is-wrong { background:#f7cda7; border-color:#894a19; }
-.mission-verdict { margin:14px 0 0; padding:12px; border-radius:10px; background:#edf3f8; font-weight:650; line-height:1.4; }
-.mission-verdict[data-result="success"] { background:#d6f0d6; border:2px solid var(--kid-green); }
-.mission-verdict[data-result="try"] { background:#ffedc9; border:2px solid #9b6824; }
-.signal-feedback { display:grid; justify-items:center; gap:10px; text-align:center; }
-.signal-scene { display:flex; align-items:center; justify-content:center; gap:24px; min-width:160px; padding:24px; background:#cfebf9; border:3px solid #91adbd; border-radius:16px; }
-.signal-icon { font-size:3rem; line-height:1; }
-.motor-flag { display:inline-block; font-size:4.5rem; color:#126e4e; font-weight:700; transform-origin:50% 90%; }
-.play-lab.is-pumping .motor-flag { animation:flag-pump .5s ease-in-out infinite alternate; }
-@keyframes flag-pump { to { transform:rotate(-25deg); } }
-.play-bottom { grid-column:1 / -1; display:grid; grid-template-columns:minmax(0,1fr) minmax(320px,auto); align-items:end; gap:16px 24px; }
-.play-controls .buoy-controls { display:grid; grid-template-columns:repeat(3,1fr); align-items:stretch; gap:10px; }
-.play-controls .btn { min-height:52px; font-size:1.0625rem; font-weight:700; border-radius:12px; }
-.play-controls [data-play] { min-width:0; }
-.play-controls .text-small { grid-column:1 / -1; text-align:center; }
-.play-controls .buoy-control { display:none; }
-.teacher-tools summary { font-weight:700; min-height:44px; }
-.teacher-tools label { display:grid; gap:6px; font-weight:650; margin-top:8px; }
-.buoy-manual { grid-column:1 / -1; margin:0; padding:16px; border:1px solid #91adbd; border-radius:16px; background:#fffdf4; }
-.play-lab > [data-status] { grid-column:3; grid-row:2; margin:0; padding:16px; font-size:1.1rem; }
-.mission-board { grid-column:1; grid-row:2; }
-.signal-feedback { grid-column:2; grid-row:2; }
-.buoy-manual > div { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; }
-.buoy-manual label { display:grid; grid-template-columns:28px 1fr; gap:8px; align-items:center; padding:10px 12px; background:#fff; border:1px solid #91adbd; border-radius:10px; font-weight:650; }
-.buoy-manual input { width:26px; height:26px; }
-.buoy-sim { padding:16px; background:#dcecf5; }
-.buoy-dashboard { justify-content:center; gap:16px; }
-.buoy-readings, .buoy-inspect { display:none; }
-#team-buoy .explorer { grid-column:1; }
 .explorer { max-width:1100px; width:100%; margin-inline:auto; }
 .explorer > h2 { text-align:center; font-size:1.5625rem; }
 .explorer > .science-note { text-align:center; margin-block:12px; }
@@ -642,11 +612,6 @@ h1,h2,h3 { letter-spacing:-.025em; }
 .model-pair figcaption { margin-bottom:14px; text-align:center; font-size:1.5rem; }
 .part-selected .model-pair figure > svg { max-height:32vh; }
 .model-pair .component-label { font-size:16px; }
-.part-mentor { margin-top:20px; padding-top:12px; border-top:1px solid var(--border); }
-.part-mentor summary { min-height:44px; font-weight:700; }
-.part-mentor > div { margin-block:12px; }
-.part-catalog-link { display:inline-block; min-height:44px; padding-block:8px; color:var(--primary); font-weight:700; }
-.part-lego-line { background:#edf4f8; border-radius:8px; padding:12px; }
 .parts-invite { margin:18px auto; max-width:800px; display:grid; grid-template-columns:1fr auto; align-items:center; gap:8px 24px; padding:20px 24px; background:#edf4f8; border:1px solid #91adbd; border-radius:16px; }
 .parts-invite h3 { margin:0; grid-column:1 / -1; }
 .parts-invite p { margin:0; color:var(--muted-foreground); }
@@ -655,348 +620,8 @@ h1,h2,h3 { letter-spacing:-.025em; }
 .buoy-lesson { margin-top:12px; }
 .buoy-lesson > h2 { font-size:1.25rem; }
 .buoy-lesson > h2::before { content:'For grown-ups. '; font-size:.9rem; color:var(--muted-foreground); }
-.presentation .play-lab { grid-template-columns:1.2fr .65fr 1fr; }
 @media (max-width:800px) { #kids-idea { grid-template-columns:minmax(0,1fr); } }
-@media (max-width:900px) {
-  .play-lab { grid-template-columns:1fr 1fr; }
-  .mission-board { grid-column:1 / -1; grid-row:auto; }
-  .signal-feedback { grid-column:2; grid-row:auto; }
-  .play-lab > [data-status] { grid-column:1; grid-row:auto; }
-  .play-bottom { grid-column:1 / -1; }
-  .model-pair figure > svg { max-height:46vh; }
-}
-@media (max-width:600px) {
-  header .btn[data-present] { min-width:0; }
-  .play-lab { grid-template-columns:minmax(0,1fr); padding:18px; }
-  .signal-feedback { grid-column:1; grid-template-columns:auto 1fr; }
-  .play-bottom { grid-template-columns:minmax(0,1fr); }
-  .signal-scene { padding:10px 24px; }
-  .signal-icon { font-size:2.5rem; }
-  .motor-flag { font-size:3.5rem; }
-  .buoy-manual > div { grid-template-columns:1fr 1fr; }
-  .buoy-manual label { display:flex; min-height:54px; }
-  .model-pair { gap:12px; }
-  .model-pair .component-label { font-size:18px; }
-}
-@media (prefers-reduced-motion:reduce) { .play-lab.is-pumping .motor-flag { animation:none; } }
-
 </style>
-<section class="play-lab" aria-labelledby="play-heading">
-  <div class="play-intro">
-    <p class="eyebrow" id="play-heading">Your turn to be the weather</p>
-    <h2>Make a guess. Then test it.</h2>
-  </div>
-  <section class="mission-board" aria-label="Robot mission">
-    <label class="mission-label" for="mission-choice">Pick a mission</label>
-    <select class="form-select" id="mission-choice" data-mission>
-      <option value="start">1 · Make the pump go</option>
-      <option value="stop">2 · Stop the pump early</option>
-      <option value="wait">3 · Does it pump again?</option>
-    </select>
-    <p class="mission-question" data-mission-question>Rain is coming. Will the pump go?</p>
-    <div class="prediction-buttons" role="group" aria-label="Make your prediction">
-      <button class="btn choice" type="button" data-predict="run">Pump will go</button>
-      <button class="btn choice" type="button" data-predict="stay">Pump stays off</button>
-    </div>
-    <p class="mission-verdict" data-verdict role="status" hidden></p>
-  </section>
-  <div class="signal-feedback" aria-label="Weather and pump feedback">
-    <div class="signal-scene" aria-hidden="true">
-      <span class="signal-icon" data-lego-signal-icon>☀</span>
-      <span class="motor-flag" data-lego-flag>⚑</span>
-    </div>
-    <strong data-lego-signal>Sunny skies</strong>
-  </div>
-  <div class="play-bottom">
-    <details class="teacher-tools">
-      <summary>Try a ready-made scene</summary>
-    </details>
-    <div class="play-controls"></div>
-  </div>
-</section>
-
-<script>(() => {
-  const init = () => {
-    const root = document.querySelector('#team-buoy');
-    const lab = document.querySelector('.play-lab');
-    const oldSim = root.querySelector('.buoy-sim');
-    const originalControls = oldSim.querySelector('.buoy-controls');
-    const scenario = root.querySelector('[data-scenario]');
-    const manual = root.querySelector('[data-manual]');
-    const inputs = [...manual.querySelectorAll('[data-input]')];
-    const stepButton = root.querySelector('[data-step]');
-    const playButton = root.querySelector('[data-play]');
-    const resetButton = root.querySelector('[data-reset]');
-    const missionSelect = lab.querySelector('[data-mission]');
-    const question = lab.querySelector('[data-mission-question]');
-    const verdict = lab.querySelector('[data-verdict]');
-    const status = root.querySelector('[data-status]');
-    const inspector = root.querySelector('.buoy-inspect');
-    const section = root.querySelector('.explorer');
-
-    // Order: kids' idea, two models with same-job mappings, weather play, then parts.
-    section.querySelector('h2').textContent = 'Same idea. Same job. Two kinds of robot.';
-    section.querySelector(':scope > p').textContent = 'Tap a part on either robot to see how it does the same job. The LEGO model is dry.';
-    section.classList.add('theme-explorer');
-    lab.querySelector('.eyebrow').textContent = 'Be the weather';
-    const partsTheme = document.createElement('section');
-    partsTheme.className = 'parts-theme';
-    partsTheme.innerHTML = '<h2>Meet the parts</h2><p>Look closer at the seven parts that make the idea work.</p>';
-    root.after(lab, partsTheme);
-    lab.querySelector('.play-controls').append(originalControls);
-    lab.insertBefore(manual, lab.querySelector('.play-bottom'));
-    lab.insertBefore(status, manual);
-    oldSim.hidden = true;
-    root.querySelector('.buoy-readings').hidden = true;
-    root.querySelector('.science-note').hidden = false;
-    inspector.hidden = true;
-    manual.hidden = false;
-    manual.querySelector('legend').textContent = 'You control these';
-    const inputLabels = { heavyRain:'Rain', cloudy:'Cloudy water', tankOK:'Water in tank', runHeld:'Hold to run' };
-    for (const input of inputs) input.nextSibling.textContent = ' ' + inputLabels[input.dataset.input];
-    stepButton.textContent = 'Next step →';
-    resetButton.textContent = 'Start over';
-    situationSetup();
-
-    function situationSetup() {
-      const details = lab.querySelector('.teacher-tools');
-      details.append(scenario.closest('label'));
-      const tip = document.createElement('p');
-      tip.textContent = 'Ready-made scenes take over the switches. Start over to control them again.';
-      details.append(tip);
-    }
-
-    const missions = {
-      start: { question: 'Rain is coming. Will the pump go?', guess: 'run', tip: 'Yes! Rain + water + Hold to run starts a two-second pulse.' },
-      stop: { question: 'The pump starts. Can you stop it early?', guess: 'run', tip: 'Stop! Let go of Run, or uncheck Water in tank. Then step again.' },
-      wait: { question: 'After this pump stops, will it start again in the same rain?', guess: 'stay', tip: 'One rain gets one turn. Clear Rain and Cloudy water to try a new event.' }
-    };
-    let mission;
-    let pumpingBefore = false;
-    let lastTime = 0;
-    let evaluating = false;
-    let allowAuto = false;
-
-    function showVerdict(message, complete = false) {
-      verdict.textContent = message;
-      verdict.hidden = false;
-      verdict.dataset.result = complete ? (mission.correct ? 'success' : 'try') : 'pending';
-      stepButton.textContent = complete ? 'Try again' : 'Next step →';
-      question.textContent = complete ? 'Mission complete! Try it again or pick another mission.' : missions[missionSelect.value].question;
-    }
-
-    function resetPrediction() {
-      allowAuto = false;
-      pumpingBefore = false;
-      mission = { stage: 'guess', choice: null };
-      for (const button of lab.querySelectorAll('[data-predict]')) {
-        button.classList.remove('is-guessed', 'is-correct', 'is-wrong');
-        button.disabled = false;
-      }
-      verdict.hidden = true;
-      verdict.dataset.result = '';
-      question.textContent = missions[missionSelect.value].question;
-      reflect();
-    }
-
-    function loadMission() {
-      for (const input of inputs) input.checked = ['heavyRain', 'tankOK', 'runHeld'].includes(input.dataset.input);
-      scenario.value = 'manual';
-      scenario.dispatchEvent(new Event('change', { bubbles: true }));
-      resetPrediction();
-      showVerdict('What do you think? Pick an answer, then watch it happen.');
-    }
-
-    function reflect() {
-      const rain = root.querySelector('[data-rain]').textContent === 'Heavy rain';
-      const cloudy = root.querySelector('[data-sample]').textContent === 'Cloudy';
-      const pumping = root.querySelector('[data-pump]').dataset.on === 'true';
-      lab.classList.toggle('is-pumping', pumping);
-      lab.querySelector('[data-lego-signal]').textContent = rain ? 'Rain signal' : cloudy ? 'Cloudy sample' : 'Sunny skies';
-      lab.querySelector('[data-lego-signal-icon]').textContent = rain ? '🌧' : cloudy ? '☁' : '☀';
-      root.querySelector('[data-time]').textContent = 'Step ' + lastTime;
-      root.querySelector('[data-countdown]').textContent = pumping ? root.querySelector('[data-countdown]').textContent.replace('s left in pulse', 'seconds to go') : '';
-    }
-
-    function kidStatus(message) {
-      const text = message.replace(/^\d+ s\s*·\s*/, '');
-      const plain = [
-        [/Pulse started/, 'Go! The pump runs for two seconds.'],
-        [/Moving demo water/, 'The pump is moving the pretend water.'],
-        [/Pulse complete/, 'Two seconds are up. The pump stopped.'],
-        [/Stopped: tank low/, 'No water left. The pump stopped to stay safe.'],
-        [/Stopped: run button released/, 'You let go. The pump stopped.'],
-        [/Waiting for both triggers to clear/, 'Same rain, no new turn. Clear Rain and Cloudy water first.'],
-        [/Blocked: tank low/, 'Not yet. The tank needs water.'],
-        [/Blocked: hold the run button/, 'Not yet. Hold Run to give permission.'],
-        [/Watching: no storm or cloudy sample/, 'All calm. Rain or cloudy water can make a request.'],
-        [/Ready to check the inputs/, 'Ready. What do you think will happen?']
-      ];
-      const next = (plain.find(([pattern]) => pattern.test(text)) || [,''])[1] || text;
-      if (status.textContent !== next) status.textContent = next;
-    }
-
-    function evaluateMission() {
-      if (evaluating || !mission || mission.stage === 'done') return;
-      evaluating = true;
-      const seconds = Number.parseInt(root.querySelector('[data-time]').textContent, 10) || 0;
-      lastTime = seconds;
-      const pumping = root.querySelector('[data-pump]').dataset.on === 'true';
-      const type = missionSelect.value;
-      const guess = mission.choice;
-      if (mission.stage === 'active') {
-        if (type === 'start' && seconds >= 1) {
-          const won = (mission.choice === 'run') === pumping;
-          markGuess(won);
-          if (pumping) showVerdict(won ? missions.start.tip : 'It went! Your guess was off, but now you know the recipe.', true);
-          else showVerdict((won ? 'Right. ' : 'Not this time. ') + 'The pump needs Rain or Cloudy water, Water in tank, and Hold to run.', true);
-          mission.stage = 'done';
-        } else if (type === 'stop') {
-          if (pumping) {
-            pumpingBefore = true;
-            if (mission.stage === 'active' && !mission.askedStop) {
-              showVerdict('It started! Now uncheck Hold to run or Water in tank. Then take the next step.');
-              mission.askedStop = true;
-            }
-          }
-          if (pumpingBefore && !pumping) {
-            markGuess(mission.choice === 'run');
-            showVerdict('You stopped it early. Safety checks beat the timer!', true);
-            mission.stage = 'done';
-          } else if (!pumpingBefore && seconds >= 3) {
-            markGuess(false);
-            showVerdict('No early stop this time. Start over, let it start, then change Run or Water.', true);
-            mission.stage = 'done';
-          }
-        } else if (type === 'wait') {
-          if (pumping) pumpingBefore = true;
-          if (pumpingBefore && !pumping && seconds >= 3) {
-            markGuess(mission.choice === 'stay');
-            showVerdict(missions.wait.tip, true);
-            mission.stage = 'done';
-          } else if (!pumpingBefore && seconds >= 3) {
-            markGuess(false);
-            showVerdict('The pump never started. Start over, keep Hold to run and Water checked, and try again.', true);
-            mission.stage = 'done';
-          }
-        }
-      }
-      if (!pumping) pumpingBefore = false;
-      reflect();
-      evaluating = false;
-    }
-
-    function markGuess(correct) {
-      mission.correct = correct;
-      const choice = lab.querySelector(`[data-predict="${mission.choice}"]`);
-      if (!choice) return;
-      choice.classList.add(correct ? 'is-correct' : 'is-wrong');
-      for (const button of lab.querySelectorAll('[data-predict]')) button.disabled = true;
-    }
-
-    lab.querySelector('[data-mission]').addEventListener('change', loadMission);
-    resetButton.addEventListener('click', () => {
-      for (const input of inputs) input.checked = input.defaultChecked;
-      loadMission();
-    });
-    for (const button of lab.querySelectorAll('[data-predict]')) {
-      button.addEventListener('click', () => {
-        mission.choice = button.dataset.predict;
-        mission.stage = 'active';
-        allowAuto = true;
-        for (const other of lab.querySelectorAll('[data-predict]')) other.classList.toggle('is-guessed', other === button);
-        if (!button.disabled) stepButton.click();
-      });
-    }
-    stepButton.addEventListener('click', event => {
-      if (!mission || mission.stage === 'guess') {
-        event.stopImmediatePropagation();
-        showVerdict('First, guess: Pump will go, or Pump stays off.');
-      }
-      if (mission.stage === 'done') {
-        event.stopImmediatePropagation();
-        loadMission();
-      }
-    }, true);
-    playButton.addEventListener('click', event => {
-      if (!allowAuto) {
-        event.stopImmediatePropagation();
-        showVerdict('Pick a guess and Next step first. Then Play can keep time moving.');
-      }
-    }, true);
-    for (const input of inputs) {
-      input.addEventListener('change', () => {
-        if (scenario.value !== 'manual') {
-          scenario.value = 'manual';
-          scenario.dispatchEvent(new Event('change', { bubbles: true }));
-        }
-      });
-    }
-    new MutationObserver(() => {
-      kidStatus(status.textContent);
-      queueMicrotask(evaluateMission);
-    }).observe(status, { childList: true, characterData: true, subtree: true });
-
-    // Child-first part dialog. The existing programming and costs stay available for mentors.
-    const pop = document.querySelector('#part-popover');
-    const mentor = document.createElement('details');
-    mentor.className = 'part-mentor';
-    mentor.innerHTML = '<summary>For mentors: code, cost and words</summary>';
-    pop.querySelector('[data-part-description]').after(mentor);
-    for (const node of [...pop.children]) {
-      if (node.matches('[data-part-cost], [data-code-tab], [data-example], h3, [data-part-words], .text-small, [data-photo-source]')) {
-        mentor.append(node);
-      }
-    }
-    // Keep each paragraph, code tab, example and source credit intact, but nested.
-    for (const node of [...pop.children]) {
-      if (node.tagName === 'P' && (node.dataset.partCost !== undefined || node.querySelector('[data-photo-source]'))) mentor.append(node);
-      if (node.tagName === 'DIV' && node.querySelector('[data-code-tab]')) mentor.append(node);
-    }
-    for (const heading of [...pop.querySelectorAll('h3')]) mentor.append(heading);
-    for (const credit of [...pop.querySelectorAll('.text-small')]) if (credit.parentElement === pop) mentor.append(credit);
-    pop.querySelector('h2').textContent = 'Meet a part';
-    pop.querySelector('[data-animate-part]').textContent = 'Watch it move';
-    const catalogLink = document.createElement('a');
-    catalogLink.className = 'part-catalog-link';
-    catalogLink.textContent = 'See its photo and job →';
-    pop.querySelector('[data-part-description]').after(catalogLink);
-    new MutationObserver(() => {
-      const pressed = pop.querySelector('[aria-pressed="true"]');
-      // The selected part is also marked on the models. Read its shared data attribute.
-      const active = [...section.querySelectorAll('[data-hotspot].selected')].map(x => x.dataset.hotspot);
-      const key = active[0] || 'pi';
-      const guides = {
-        weather: 'A button sends a rain message.', power: 'Power gives every part energy.', pi: 'The computer reads and decides.', run: 'Hold the button. Let go to stop.', tanks: 'The float checks the water level.', pump: 'The pump pushes water through a tube.', optics: 'Light helps check the water sample.'
-      };
-      const title = guides[key];
-      const heading = pop.querySelector('h2');
-      if (heading.textContent !== title) heading.textContent = title;
-      const legoLine = document.createElement('p');
-      legoLine.className = 'part-lego-line';
-      legoLine.textContent = ({weather:'Hub left button',power:'Hub battery',pi:'Large Hub computer',run:'Hub right button',tanks:'Distance Sensor · port B',pump:'Motor · port C',optics:'Color Sensor · port A'})[key];
-      pop.querySelector('[data-part-description]').replaceChildren(legoLine);
-      catalogLink.href = 'parts.html#' + key;
-    }).observe(pop.querySelector('h2'), {childList: true, characterData: true, subtree:true});
-
-    // Size the comparison for the play-first page without changing its interactions.
-    section.querySelector('.model-pair').querySelectorAll('figcaption').forEach(caption => {
-      caption.firstChild.textContent = caption.textContent.includes('LEGO SPIKE') ? 'LEGO model' : 'Big buoy idea';
-    });
-    // The supplied guide is still the source for animations; simplify visible labels only.
-    root.querySelectorAll('[data-model="outdoor"] .component-label').forEach(label => { label.textContent = label.textContent.replace('Solar power idea', 'Sun power idea').replace('Hold-to-run button', 'Hold to run').replace('Water tank + float', 'Tank and float').replace('Pump + tubing', 'Pump and tube').replace('Light through water', 'Light sensor'); });
-    root.querySelectorAll('[data-model="lego"] .component-label').forEach(label => { label.textContent = label.textContent.replace('Medium Angular Motor · C', 'Motor · C').replace('Distance Sensor · B', 'Distance · B').replace('Color Sensor · A', 'Color Sensor · A'); });
-    const kitKey = [...section.children].find(node => node.textContent.startsWith('Find these in your kit:'));
-    const invitation = section.querySelector('.parts-invite');
-    invitation.querySelector('h3').remove();
-    partsTheme.append(kitKey, invitation, section.querySelector('details.part-glossary'));
-    partsTheme.after(...root.querySelectorAll(':scope > details'));
-    loadMission();
-  };
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', init, {once: true});
-  else init();
-})();
-</script>
 <style>
 :root { color-scheme:light; --background:#e4eef4; --foreground:#18374c; --muted-foreground:#466479; --control:#d5e5ee; --border:#91adbd; --primary:#185f83; --on-primary:#fff; --blue:#287ba4; --green:#267b6b; --orange:#b6572b; }
 .explorer {grid-column:1/-1}.model-pair{display:grid;grid-template-columns:1fr 1fr;gap:24px}.model-pair figure{margin:0;min-width:0}.model-pair figcaption{font-size:1.3rem;font-weight:700;margin:12px 0}.model-pair svg{width:100%;display:block;background:#d5e7f0;border-radius:16px}.model-pair svg text{font-family:system-ui;fill:#173b50;font-size:13px}.hotspot{cursor:pointer}.hotspot:hover,.hotspot:focus-visible,.hotspot.selected{filter:drop-shadow(0 0 5px #1c92b1)}.hotspot:focus-visible{outline:2px solid #185f83}.hotspot .moving{transform-box:fill-box;transform-origin:center}.hotspot.demo .moving{animation:part-move .7s alternate 6}.model-pair.pumping [data-hotspot=pump] .moving{animation:part-spin 1s linear infinite}.model-pair.paused [data-hotspot=pump] .moving{animation-play-state:paused}@keyframes part-move{to{transform:translateY(-9px);opacity:.6}}@keyframes part-spin{to{transform:rotate(360deg)}}
@@ -1019,25 +644,28 @@ h1,h2,h3 { letter-spacing:-.025em; }
    Resistor:['A part that limits electric current','It helps control how much electricity flows through a circuit.'],
    'microSD':['A small Secure Digital memory card','It stores the Pi\'s software and our program, like a tiny bookshelf for computer files.'],
    USD:['United States dollars','The currency used for the prices below.'],
+   Transmitter:['A sender','A part that sends radio messages. The kids planned one to pass the forecast to the CPU.'],
+   Valve:['A gate for flow','A part that lets water through one way. The kids planned a one-way valve so the mix goes out and cannot flow back.'],
+   Sprayer:['A spray head','A nozzle that spreads water on top. The kids planned one on the side of the buoy.'],
    'OR / AND / NOT':['Words that help code make choices','OR means either condition can be true. AND means both must be true. NOT means the opposite.']
  };
  const partGuide={
-   weather:{label:'Rain message',photo:'button',caption:'Example forecast button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Tell the computer that rain is coming.',plain:'A forecast is a prediction about the weather. For our tabletop idea, pressing a button pretends that a heavy-rain message has arrived. The button does not measure rain.',lego:'Hold the LEGO Hub\'s left button to pretend that a heavy-rain message has arrived.',words:['GPIO']},
-   power:{label:'Power supply',photo:'power',caption:'Example Pi power adapter',alt:'Black wall power adapter with a cable for a Raspberry Pi',source:'https://www.adafruit.com/product/1995',credit:'Adafruit',short:'Give the parts electricity to work.',plain:'A power supply gives the parts electricity. The tabletop Pi and pump use separate plug-in supplies. This photo shows the optional Pi adapter. Solar power is part of the outdoor idea.',lego:'The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the idea.',words:['SPIKE']},
-   pi:{label:'Small computer',photo:'pi',caption:'Raspberry Pi 3',alt:'Green Raspberry Pi 3 circuit board with metal sockets and a row of connection pins',source:'https://www.adafruit.com/product/3055',credit:'Adafruit',short:'Read the sensors and follow our rules.',plain:'The Raspberry Pi is a small computer. It reads the inputs and follows our program to decide when the pump should run. It remembers when a rain or cloudy-water event has already used its turn.',lego:'The LEGO Hub is the model\'s small computer. It follows the same rules using LEGO sensors and a motor.',words:['Python','GPIO','Pulse']},
-   run:{label:'Run button',photo:'button',caption:'Example hold-to-run button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Hold to allow pumping. Let go to stop.',plain:'This is a permission button. The pump may run only while someone holds it. Letting go tells the computer to stop the pump at its next check. A rain or cloudy-water signal is still needed to start.',lego:'Hold the LEGO Hub\'s right button to allow the motor to run. Letting go tells it to stop.',words:['GPIO']},
-   tanks:{label:'Water level',photo:'tanks',caption:'Float switch',alt:'White float switch with a movable floating ring, stem, and wires',source:'https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor',credit:'AceCrew',short:'Check that there is enough water.',plain:'A float rides on top of the water, like a tiny boat. As the water gets lower, the float drops and changes a switch. That tells the computer to stop pumping. The cups hold the demo water.',lego:'A distance sensor measures how far away a dry marker is. Moving the marker farther away pretends that the tank is low. No water goes near the LEGO sensor.',words:['Port']},
-   pump:{label:'Water pump',photo:'pump',caption:'Pump with soft tubing',alt:'Small pump with a metal motor, black roller housing, and clear flexible tubing',source:'https://www.adafruit.com/product/3910',credit:'Adafruit',short:'Push water through a soft tube.',plain:'This pump squeezes a soft tube to push water along, a little like squeezing toothpaste. A separate electronic switch lets the computer turn it on and off. In the tabletop demo, it moves food-colored water into a cup.',lego:'A LEGO motor spins a wheel or flag to show when the pump would run. It is a dry stand-in for moving water.',words:['MOSFET','Pulse','Port']},
-   optics:{label:'Light sensor',photo:'optics',caption:'Photoresistor',alt:'Round light sensor with a squiggly track on its face and two metal legs',source:'https://www.adafruit.com/product/161',credit:'Adafruit',short:'See how much light gets through water.',plain:'We shine a tiny light through a water sample. The sensor measures how much gets through. Cloudy water blocks more light, but that alone does not tell us whether algae caused the cloudiness.',lego:'The LEGO Color Sensor measures light bouncing off a card. A light card stands for clear water; a dark card stands for cloudy water. Keep the card the same distance away.',words:['LED','Photoresistor','ADC','MCP3008']}
+   weather:{label:'Antenna & transmitter',photo:'button',caption:'Example forecast button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Get the heavy-rain message from the weather network.',plain:'The kids put an antenna on top that connects to the weather network, plus a transmitter that passes the message to the CPU. A forecast is a prediction, not a measurement. For the tabletop idea, pressing a button pretends that a heavy-rain message has arrived.',lego:'Hold the LEGO Hub\'s left button to pretend that a heavy-rain message has arrived. It stands in for the kids\' antenna and transmitter.',words:['Transmitter','GPIO']},
+   power:{label:'Solar panels & battery',photo:'power',caption:'Example Pi power adapter',alt:'Black wall power adapter with a cable for a Raspberry Pi',source:'https://www.adafruit.com/product/1995',credit:'Adafruit',short:'Sunlight charges the battery that powers the parts.',plain:'The kids put solar panels on top of the buoy to charge a battery inside. The battery powers the transmitter, the small CPU, the water filter, and the antenna. The tabletop Pi and pump use separate plug-in supplies. This photo shows the optional Pi adapter.',lego:'The LEGO Hub has a rechargeable battery. It powers the Hub, its sensors, and its motor. The model solar panel is just for showing the kids\' idea.',words:['SPIKE']},
+   pi:{label:'Small CPU',photo:'pi',caption:'Raspberry Pi 3',alt:'Green Raspberry Pi 3 circuit board with metal sockets and a row of connection pins',source:'https://www.adafruit.com/product/3055',credit:'Adafruit',short:'Read the sensors and decide when to release the treatment.',plain:'The kids\' small CPU listens for two triggers: a heavy-rain forecast, or the water sensor finding an overabundance of algae. When a trigger comes, it opens the valve and mixes the water. Our model runs the pump for a two-second pulse instead, and it remembers when an event has already used its turn.',lego:'The LEGO Hub is the model\'s small computer. It follows the same rules using LEGO sensors and a motor.',words:['Python','GPIO','Pulse']},
+   run:{label:'Hold-to-run (safety extra)',photo:'button',caption:'Example hold-to-run button',alt:'Close-up of a small black push button with four metal legs',source:'https://www.adafruit.com/product/367',credit:'Adafruit',short:'Hold to allow pumping. Let go to stop.',plain:'This button is not in the kids\' plan. We added it as a classroom safety rule so the pump cannot run without a person holding permission. A rain or cloudy-water signal is still needed to start.',lego:'Hold the LEGO Hub\'s right button to allow the motor to run. Letting go tells it to stop.',words:['GPIO']},
+   tanks:{label:'Two tanks & one-way valve',photo:'tanks',caption:'Float switch',alt:'White float switch with a movable floating ring, stem, and wires',source:'https://acecrewdirect.com/products/plastic-float-switch-liquid-level-sensor',credit:'AceCrew',short:'Hold the treatment water and check the level.',plain:'The kids planned two tanks: one holds a sodium peroxyhydrate solution that can kill algae, and the other holds water behind a one-way valve. When heavy rain is forecast, the CPU opens the valve and mixes the water. Our demo cups hold colored water, and the float switch only checks that there is enough water to pump.',lego:'A distance sensor measures how far away a dry marker is. Moving the marker farther away pretends that the tank is low. No water goes near the LEGO sensor.',words:['Valve','Port']},
+   pump:{label:'Pump & sprayer',photo:'pump',caption:'Pump with soft tubing',alt:'Small pump with a metal motor, black roller housing, and clear flexible tubing',source:'https://www.adafruit.com/product/3910',credit:'Adafruit',short:'Send the mixed water out over the surface.',plain:'The kids\' water tank leads to a sprayer on the side that sprays the mix on top of the water. Our tabletop pump squeezes a soft tube to push water along, a little like squeezing toothpaste, and moves food-colored water into a cup. It shows the sending job, not a real sprayer.',lego:'A LEGO motor spins a wheel or flag to show when the sprayer would run. It is a dry stand-in for moving water.',words:['MOSFET','Pulse','Port','Sprayer']},
+   optics:{label:'Water sensor',photo:'optics',caption:'Photoresistor',alt:'Round light sensor with a squiggly track on its face and two metal legs',source:'https://www.adafruit.com/product/161',credit:'Adafruit',short:'Watch the water for an algae overabundance.',plain:'The kids put a sensor on the bottom of the buoy to watch for an overabundance of algae. Our tabletop stand-in shines a tiny light through a water sample and measures how much gets through. Cloudy water blocks more light, but sediment can also block it, so cloudiness alone does not prove algae.',lego:'The LEGO Color Sensor measures light bouncing off a card. A light card stands for clear water; a dark card stands for cloudy water. Keep the card the same distance away.',words:['LED','Photoresistor','ADC','MCP3008']}
  };
  function explainWords(keys){const list=document.createElement('dl');list.className='word-definitions';for(const key of keys){const row=document.createElement('div');const term=document.createElement('dt');term.textContent=key;const meaning=document.createElement('dd');meaning.textContent=wordBook[key][0]+'. '+wordBook[key][1];row.append(term,meaning);list.append(row);}return list;}
  const python={weather:'heavy_rain = forecast.is_pressed',power:'# Power comes from hardware, not code.\n# Outdoor solar is conceptual.\n# Prototype: separate Pi and pump supplies.',pi:'event = heavy_rain or cloudy\nif stop_at is not None:\n    if not tank_ok or not run_held or now >= stop_at:\n        stop_at = None\nelif not event:\n    event_used = False\nelif tank_ok and run_held and not event_used:\n    event_used = True\n    stop_at = now + 2\n\npump.value = stop_at is not None',run:'run_held = run_button.is_pressed\nif not run_held:\n    pump.off()',tanks:'tank_ok = float_switch.is_pressed\nif not tank_ok:\n    pump.off()',pump:'# Repeat while checking the inputs.\nif stop_at is not None:\n    if not tank_ok or not run_held or now >= stop_at:\n        stop_at = None\npump.value = stop_at is not None',optics:'light = sensor.value\ncloudy = light < calibrated_cutoff'};
  const blocks={weather:['Forever','Set rain to left button pressed?'],power:['Hardware connection, no programming block','Hub battery supplies sensors and motor'],pi:['Forever: read rain, cloudy, tank OK and Run','If running: stop motor C if tank low OR Run released OR timer ≥ 2; set running false','Else if neither rain nor cloudy: set used false','Else if tank OK AND Run AND NOT used','Set used true; reset timer; start motor C; set running true'],run:['Forever','If NOT right button pressed','Stop motor C; set running false'],tanks:['Forever','Set tank OK to valid distance on B below cutoff','If NOT tank OK: stop motor C; set running false'],pump:['When controller starts a new pulse','Start motor C; reset timer; set running true','Forever: while running, keep checking inputs','If tank low OR Run released OR timer ≥ 2','Stop motor C; set running false'],optics:['Forever','Set cloudy to reflected light on A below cutoff']};
  const costs={weather:'Included in shared $12–18 wiring/button kit.',run:'Included in shared $12–18 wiring/button kit.',power:'Pump supply + adapter: $13.25. Outdoor solar/enclosure excluded.',pi:'Raspberry Pi and LEGO hub already owned: $0 additional.',tanks:'Float: $7.99; cups/craft supplies: $4–8 shared.',pump:'Pump: $24.95; driver + cable: $5.20. LEGO motor already owned.',optics:'MCP3008 + photoresistor: $5.45; LED/resistors in shared kit.'};
- const section=document.createElement('section');section.className='explorer';section.innerHTML='<h2>One idea. Two ways to imagine it.</h2><p>Select a component on either model to explore its job, code, and prototype cost.</p><div class="model-pair"></div><p class="science-note">Outdoor concept illustration, not a tested design. The LEGO equivalent is a dry classroom model.</p>';
+ const section=document.createElement('section');section.className='explorer';section.innerHTML='<h2>Same idea. Same job. Two kinds of robot.</h2><p>Select a part on either model to see how it does the same job. The LEGO model is dry.</p><div class="model-pair"></div><p class="science-note">Outdoor concept illustration, not a tested design. The LEGO equivalent is a dry classroom model.</p>';
  root.prepend(section);
  const kitNames={weather:'Hub left button',power:'Hub battery',pi:'Large Hub',run:'Hub right button',tanks:'Distance Sensor · B',pump:'Medium Angular Motor · C',optics:'Color Sensor · A'};
- const displayNames={weather:'Rain forecast',power:'Solar power idea',pi:'Raspberry Pi',run:'Hold-to-run button',tanks:'Water tank + float',pump:'Pump + tubing',optics:'Light through water'};
+ const displayNames={weather:'Antenna & transmitter',power:'Solar & battery',pi:'Small CPU (Raspberry Pi)',run:'Hold-to-run (safety)',tanks:'Water tanks & valve',pump:'Pump & sprayer',optics:'Water sensor (bottom)'};
  const componentPositions={weather:[115,85],power:[395,85],pi:[395,260],run:[115,260],tanks:[115,435],pump:[395,435],optics:[300,610]};
  const portHoles=(x,y,count,step=16)=>Array.from({length:count},(_,i)=>`<circle cx="${x+i*step}" cy="${y}" r="4" fill="#294858" stroke="#86a5b2"/>`).join('');
  function componentArt(part,lego){
@@ -1077,7 +705,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
  }
  const modelPair=section.querySelector('.model-pair');
  modelPair.insertBefore(pop,section.querySelector('[data-model="lego"]'));
- const sameJobs={weather:'send a rain message',power:'supply electricity',pi:'read inputs and follow the rules',run:'give permission to run',tanks:'check whether there is enough water',pump:'show the output running',optics:'use light to check the sample'};
+ const sameJobs={weather:'get the heavy-rain message',power:'charge the battery and power the parts',pi:'read, decide, and release the treatment',run:'an added safety check',tanks:'watch the treatment water level',pump:'send the mix out',optics:'watch the water for algae trouble'};
  const mappingSummary=document.createElement('p');mappingSummary.className='mapping-summary';mappingSummary.hidden=true;mappingSummary.setAttribute('role','status');modelPair.before(mappingSummary);
  const svgNamespace='http://www.w3.org/2000/svg';
  const connector=document.createElementNS(svgNamespace,'svg');connector.classList.add('mapping-connector');connector.setAttribute('aria-hidden','true');connector.setAttribute('hidden','');
@@ -1145,7 +773,7 @@ h1,h2,h3 { letter-spacing:-.025em; }
    tab(kind);pop.hidden=false;pop.scrollTop=0;modelPair.classList.add('has-details');document.body.classList.add('part-selected');selectMapping(button);mappingSummary.scrollIntoView({block:'start',behavior:'instant'});pop.querySelector('[data-close-part]').focus({preventScroll:true});
  }
  const invite=document.createElement('div');invite.className='explorer-parts parts-invite';invite.setAttribute('aria-label','Meet the parts');section.querySelector('.model-pair').after(invite);
- invite.innerHTML='<h3>Meet the parts</h3><p>Seven parts make this work. Meet the buttons, sensors, pump and computer.</p>';
+ invite.innerHTML='<h3>Meet the parts</h3><p>Six parts stand in for the kids\' buoy idea, plus one safety add. Meet the antenna, tanks, sprayer, sensor and computer.</p>';
  const inviteLink=document.createElement('a');inviteLink.className='btn btn-primary';inviteLink.href='parts.html';inviteLink.textContent='Meet the parts →';
  invite.append(inviteLink);
  const wordsHeading=document.createElement('h3');wordsHeading.textContent='Words made simple';const partWords=document.createElement('div');partWords.dataset.partWords='';pop.querySelector('[data-part-cost]').after(wordsHeading,partWords);const photoSource=document.createElement('a');photoSource.dataset.photoSource='';const photoCredit=document.createElement('p');photoCredit.className='text-small';photoCredit.append(photoSource);partWords.after(photoCredit);
